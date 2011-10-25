@@ -1,0 +1,6 @@
+Needed OCX's and DLL's:
+	- Visual Basic 6 Runtime libraries
+	- MSCOMCTL.OCX
+	- COMCTL32.OCX
+
+to be installed.
