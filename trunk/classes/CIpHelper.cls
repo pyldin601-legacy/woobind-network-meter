@@ -112,6 +112,8 @@ End Property
 
 Private Function InitInterfaces(objInterfaces As CInterfaces) As Boolean
     '
+    On Error Resume Next
+    
     Dim arrBuffer()     As Byte
     Dim lngSize         As Long
     Dim lngRetVal       As Long
