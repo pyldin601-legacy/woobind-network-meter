@@ -37,7 +37,7 @@ Sub LoadTariff()
     On Error Resume Next
     Dim KTL As Currency
 
-    Open LowPath(App.Path) + "dynamic.bin" For Random As #1 Len = Len(KTL)
+    Open def_complete_path(App.Path) + "dynamic.bin" For Random As #1 Len = Len(KTL)
         For i = 0 To 24 * 7
             Get #1, i + 1, KTL
             taxes_matrix(i Mod 7, Fix(i / 7)) = KTL
@@ -51,7 +51,7 @@ Sub SaveTariff()
     On Error Resume Next
     Dim KTL As Currency
 
-    Open LowPath(App.Path) + "dynamic.bin" For Random As #1 Len = Len(KTL)
+    Open def_complete_path(App.Path) + "dynamic.bin" For Random As #1 Len = Len(KTL)
         For i = 0 To 24 * 7
             KTL = taxes_matrix(i Mod 7, Fix(i / 7))
             Put #1, i + 1, KTL
@@ -70,7 +70,7 @@ Sub LoadRulers()
         taxes_matrix(c - 1, d) = StaticTariff
     Next d: Next c
 
-    Open LowPath(App.Path) + "rulers.bin" For Random As #1 Len = Len(RFRecord)
+    Open def_complete_path(App.Path) + "rulers.bin" For Random As #1 Len = Len(RFRecord)
         For i = 1 To LOF(1) / Len(RFRecord)
             Get #1, i, RFRecord
             For c = 1 To 7
@@ -105,7 +105,7 @@ Function ScanRulers() As Boolean
         dts(c - 1, d) = -20061985
     Next d: Next c
 
-    Open LowPath(App.Path) + "rulers.bin" For Random As #1 Len = Len(RFRecord)
+    Open def_complete_path(App.Path) + "rulers.bin" For Random As #1 Len = Len(RFRecord)
         For i = 1 To LOF(1) / Len(RFRecord)
             Get #1, i, RFRecord
             For c = 1 To 7
@@ -132,7 +132,7 @@ End Function
 
 Sub AddRuler(inDays As String, inCost As Currency, inStart As Integer, inStop As Integer)
 
-    Open LowPath(App.Path) + "rulers.bin" For Random As #1 Len = Len(RFRecord)
+    Open def_complete_path(App.Path) + "rulers.bin" For Random As #1 Len = Len(RFRecord)
         RFRecord.rfDays = inDays
         RFRecord.rfTariff = inCost
         RFRecord.rfTimeStart = inStart
@@ -148,7 +148,7 @@ Sub ShowRulers()
     Dim c As Integer, d As Integer, e As String
     Dialog.lstTariffs.ListItems.Clear
 
-    Open LowPath(App.Path) + "rulers.bin" For Random As #1 Len = Len(RFRecord)
+    Open def_complete_path(App.Path) + "rulers.bin" For Random As #1 Len = Len(RFRecord)
         For i = 1 To Fix(LOF(1) / Len(RFRecord))
             e = ""
             Get #1, i, RFRecord
@@ -170,8 +170,8 @@ Sub DeleteRuler(inIndex As Integer)
     Dim c As Integer, d As Integer, e As String
     Dialog.lstTariffs.ListItems.Clear
 
-    Open LowPath(App.Path) + "rulers.bin" For Random As #1 Len = Len(RFRecord)
-    Open LowPath(App.Path) + "rulerstmp.bin" For Random As #2 Len = Len(RFRecord)
+    Open def_complete_path(App.Path) + "rulers.bin" For Random As #1 Len = Len(RFRecord)
+    Open def_complete_path(App.Path) + "rulerstmp.bin" For Random As #2 Len = Len(RFRecord)
             For i = 1 To Fix(LOF(1) / Len(RFRecord))
                 Get #1, i, RFRecord
                 If i <> inIndex Then
@@ -181,8 +181,8 @@ Sub DeleteRuler(inIndex As Integer)
             Next i
     Close #2, #1
 
-    Kill LowPath(App.Path) + "rulers.bin"
-    Name LowPath(App.Path) + "rulerstmp.bin" As LowPath(App.Path) + "rulers.bin"
+    Kill def_complete_path(App.Path) + "rulers.bin"
+    Name def_complete_path(App.Path) + "rulerstmp.bin" As def_complete_path(App.Path) + "rulers.bin"
 
 End Sub
 

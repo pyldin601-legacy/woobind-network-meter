@@ -27,27 +27,16 @@ Public Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal
 Const SPI_GETWORKAREA = 48
 Const None = ""
 
-Global IDXPosIn(32000) As Long
-Global IDXPosOut(32000) As Long
-Function Biggest(A As Integer, B As Integer) As Integer
-If A > B Then Biggest = A Else Biggest = B
-End Function
+'Global xIDXPosIn(32000) As Long
+'Global xIDXPosOut(32000) As Long
 
-Function NoExe(iStr As String) As String
-    Dim y
-    y = InStrRev(iStr, ".")
-    If y > 0 Then
-        NoExe = Mid(iStr, 1, y - 1)
-    Else
-        NoExe = iStr
-    End If
-End Function
-
-Function KillNull(Expression As String) As String
-
-N = InStr(Expression, Chr(0))
-
-If N Then KillNull = Mid(Expression, 1, N - 1) Else KillNull = Expression
+Function def_cut_by_zero(Expression As String) As String
+  N = InStr(Expression, Chr(0))
+  If N Then
+    def_cut_by_zero = Mid(Expression, 1, N - 1)
+  Else
+    def_cut_by_zero = Expression
+  End If
 End Function
 
 Function ValW(Expression)
@@ -79,19 +68,6 @@ Function DateX(inSeconds As Long) As String
     If DateX = "" Then DateX = "0c."
         
 End Function
-
-
-Function DateBorn(inBorn As String) As String
-    
-    Dim x As Integer, y As Integer, z As Integer
-    z = DateDiff("d", inBorn, Now)
-    
-    GetDateFromLong CInt(z), x, y, Year(inBorn)
-    
-    DateBorn = Format(Fix(z / 365), "0") & "г. " & Format(y, "0") & "мес. " & Format(x, "0") & "дн. "
-        
-End Function
-
 
 Function FormatEx(xExpression, xFormat) As String
 Dim T As String
@@ -145,20 +121,17 @@ Dim S(1 To 4) As Long
 Dim tmpDIST As Long
 Dim X1, Y1, X2, Y2
 
-' Если координаты точки не заданы используем координаты мышки
 If x = -1 And y = -1 Then _
   GetCursorPos MouseCoords: _
   x = 15 * MouseCoords.x: _
   y = 15 * MouseCoords.y
   
   
-' Определение углов элемента управления
 X1 = inForm.Left + inControl.Left
 Y1 = inForm.Top + inControl.Top
 X2 = inForm.Left + inControl.Left + inControl.Width
 Y2 = inForm.Top + inControl.Top + inControl.Height
 
-' Нахождение ближайшей стороны или угла
 If x >= X1 And x <= X2 And y <= Y1 And y <= Y2 Then
     tmpDIST = (Y1 - y)
     sX = x
@@ -211,7 +184,6 @@ Dim S(1 To 4) As Long
 Dim tmpDIST As Long
 Dim X1, Y1, X2, Y2
 
-' Если координаты точки не заданы используем координаты мышки
 If x = -1 And y = -1 Then _
   GetCursorPos MouseCoords: _
   x = tppX * MouseCoords.x: _
@@ -219,13 +191,11 @@ If x = -1 And y = -1 Then _
   
 Call GetWindowRect(inhandle, uw)
   
-' Определение углов элемента управления
 X1 = uw.Left * tppX
 Y1 = uw.Top * tppY
 X2 = uw.Right * tppX
 Y2 = uw.Bottom * tppY
 
-' Нахождение ближайшей стороны или угла
 If x >= X1 And x <= X2 And y <= Y1 And y <= Y2 Then
     tmpDIST = (Y1 - y)
     sX = x
@@ -460,7 +430,8 @@ Function GetLongFromData(inDay As Integer, inMonth As Integer, inYear As Integer
 
 
 End Function
-Function GetLongFromDataEx(inDay As Integer, inMonth As Integer, inYear As Integer) As Currency
+
+Function def_date_to_long(inDay As Integer, inMonth As Integer, inYear As Integer) As Currency
 
 If inYear Mod 4 = 0 Then N = 1 Else N = 0
 
@@ -471,33 +442,9 @@ date_start = DateSerial(inYear, 1, 1)
 date_stop = DateSerial(inYear, inDay, inMonth)
 date_delta = DateDiff("d", date_stop, date_start, vbMonday, vbFirstJan1)
 
-GetLongFromDataEx = inYear * (365 + N) + date_delta
+def_date_to_long = inYear * (365 + N) + date_delta
 
 End Function
-Sub GetDateFromLong(InLong As Integer, inDay As Integer, inMonth As Integer, inYear As Integer)
-
-Dim temp As Integer, A As Integer, B As Integer, N As Integer
-
-If inYear Mod 4 = 0 Then N = 1 Else N = 0
-temp = InLong Mod 365 + N
-If temp > 0 Then A = temp: B = 1
-If temp > 31 Then A = temp - 31: B = 2
-If temp > 59 + N Then A = temp - 59 - N: B = 3
-If temp > 90 + N Then A = temp - 90 - N: B = 4
-If temp > 120 + N Then A = temp - 120 - N: B = 5
-If temp > 151 + N Then A = temp - 151 - N: B = 6
-If temp > 181 + N Then A = temp - 181 - N: B = 7
-If temp > 212 + N Then A = temp - 212 - N: B = 8
-If temp > 243 + N Then A = temp - 243 - N: B = 9
-If temp > 273 + N Then A = temp - 273 - N: B = 10
-If temp > 304 + N Then A = temp - 304 - N: B = 11
-If temp > 334 + N Then A = temp - 334 - N: B = 12
-
-inDay = A
-inMonth = B
-
-End Sub
-
 
 Function GetFileSize(FName As String) As Long
  On Error Resume Next
@@ -507,10 +454,12 @@ Function GetFileSize(FName As String) As Long
  Close i
 End Function
 
-
 Function GetTimeFromMinutes(vMinutes As Long)
-If vMinutes < 60 * 60 Then GetTimeFromMinutes = Format$(Fix(vMinutes / 60), "00") & ":" & Format$(Fix(vMinutes Mod 60), "00")
-If vMinutes >= 60 * 60 Then GetTimeFromMinutes = Format$(Fix(vMinutes / 3600), "00") & ":" & Format$(Fix(vMinutes / 60) Mod 60, "00") & ":" & Format$(Fix(vMinutes Mod 60), "00")
+If vMinutes < 3600 Then
+  GetTimeFromMinutes = Format$(Fix(vMinutes / 60), "00") & ":" & Format$(Fix(vMinutes Mod 60), "00")
+Else
+  GetTimeFromMinutes = Format$(Fix(vMinutes / 3600), "00") & ":" & Format$(Fix(vMinutes / 60) Mod 60, "00") & ":" & Format$(Fix(vMinutes Mod 60), "00")
+End If
 End Function
 
 Function GetMinutesFromTime(vTime As String)
@@ -564,24 +513,9 @@ If Mid$(FileName, Names, 1) = "\" Then FileHead$ = Right$(FileName, Len(FileName
 Next
 End Function
 
-Public Function LowPath(inPath As String) As String
-If Right$(inPath, 1) = "\" Then LowPath = inPath
-If Right$(inPath, 1) <> "\" Then LowPath = inPath + "\"
-End Function
-
-
-
-Public Function Загрузить_Настройки2(Опция As String, Имя_Файла As String, Optional По_Умолчанию = "") As String
-Dim CfgLine As String, g As Integer
-On Error Resume Next
-g = FreeFile
-Open Имя_Файла For Input As #g
-Do
-Line Input #g, CfgLine
-
-Loop While Not EOF(g)
-Загрузить_Настройки2 = Format(По_Умолчанию)
-Close g
+Public Function def_complete_path(inPath As String) As String
+If Right$(inPath, 1) = "\" Then def_complete_path = inPath
+If Right$(inPath, 1) <> "\" Then def_complete_path = inPath + "\"
 End Function
 
 Public Function filter_interface_name(Record As String)
@@ -596,105 +530,19 @@ End If
 filter_interface_name = CfgLine
 End Function
 
-Function ReadCommand(ByRef GetCommand As String, ByRef GetValue As Boolean)
- If GetValue = True Then ReadCommand = Right$(GetCommand, Len(GetCommand) - 12)
- If GetValue = False Then ReadCommand = Mid$(GetCommand, 1, 11)
+Function def_any_to_bool(Value) As Boolean
+If Not Val(Format(Value)) = 0 Then def_any_to_bool = True: Exit Function
+If Format(Value) = "True" Then def_any_to_bool = True: Exit Function
+def_any_to_bool = False
 End Function
 
-Function FilterName(Text As String) As String
-
-Dim lS, Bs, Variants, Bizer
-On Error Resume Next
-
-For lS = 1 To Len(Text)
-Bs = Mid$(Text, lS, 1)
-
- For Variants = 0 To 47
-  If Bs = Chr$(Variants) Then Bs = "_"
- Next
- For Variants = 91 To 96
-  If Bs = Chr$(Variants) Then Bs = "_"
- Next
- For Variants = 58 To 63
-  If Bs = Chr$(Variants) Then Bs = "_"
- Next
- For Variants = 123 To 191
-  If Bs = Chr$(Variants) Then Bs = "_"
- Next
- 
-Mid$(Text, lS, 1) = Bs
-
-Next
-
-If Text = "" Then Text = "Unnamed"
-FilterName = Text
-
+Function def_bool_to_str(Value As Boolean) As String
+  If Value = True Then def_bool_to_str = "True" Else def_bool_to_str = "False"
 End Function
 
-Function CBol(Value) As Boolean
-If Not Val(Format(Value)) = 0 Then CBol = True: Exit Function
-If Format(Value) = "True" Then CBol = True: Exit Function
-CBol = False
+Function def_bool_to_int(inVal As Boolean) As Integer
+  def_bool_to_int = 0
+  If inVal = True Then def_bool_to_int = 1
+  If inVal = False Then def_bool_to_int = 0
 End Function
-
-Function xStr(Value As Boolean) As String
-If Value = True Then xStr = "True" Else xStr = "False"
-End Function
-
-Function Bol2Int(inVal As Boolean) As Integer
-  Bol2Int = 0
-  If inVal = True Then Bol2Int = 1
-  If inVal = False Then Bol2Int = 0
-End Function
-
-Function CountDubs(Expression As String, Chars As String) As Long
-Dim Q As Long: Q = 0
-Dim W As Long: W = 0
-Do
- Q = InStr(Q + 1, Expression, Chars)
- If Q > 0 Then W = W + 1
-Loop Until Q = 0
-
-CountDubs = W
-End Function
-
-Sub ExchangeFiles(SI As Integer, DI As Integer, Sources As ListBox)
-On Error Resume Next
-Dim A, B, ASel As Boolean, BSel As Boolean
-A = Sources.List(DI)
-B = Sources.List(SI)
-ASel = Sources.Selected(DI)
-BSel = Sources.Selected(SI)
-Sources.List(DI) = B
-Sources.List(SI) = A
-Sources.Selected(DI) = BSel
-Sources.Selected(SI) = ASel
-
-End Sub
-
-' Sub Sleep(TM)
-' tm1 = Timer
-' Do: DoEvents: Loop While Not Timer >= tm1 + TM
-' End Sub
-
-Sub ExtractData(inFile As String, outFile As String, fstByte As Long, lenByte As Long)
-On Error Resume Next
-
-
-Open inFile For Binary As #11
-Open outFile For Binary As #12
-
-Const BUFLEN = 32666
-LessData = lenByte Mod BUFLEN
-OkedData = Fix(lenByte / BUFLEN)
-Dim BufferString As String * BUFLEN
-
-For N = fstByte To lenByte + 1 Step BUFLEN
- Get #11, N, BufferString
- Put #12, , BufferString
-Next N
-
-Close #11, #12
-
-End Sub
 

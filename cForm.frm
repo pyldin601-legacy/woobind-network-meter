@@ -189,7 +189,7 @@ Sub HideForm(inWait As Boolean)
         Loop Until Not IsMouseInWindow(Me.hWnd)
     End If
 
-    If WithSound Then PlayWAVAsync (LowPath(App.Path) & "closed.wav")
+    If WithSound Then PlayWAVAsync (def_complete_path(App.Path) & "closed.wav")
 
     Dim i As Long, j As Long
 
@@ -269,19 +269,19 @@ Sub PopupForm(bnTITLE As String, bnTEXT As String, bnSOUND As Boolean, bnTOP As 
 
     Select Case bnTYPE
     Case 0
-        If bnSOUND Then PlayWAVAsync (LowPath(App.Path) & "notify.wav")
+        If bnSOUND Then PlayWAVAsync (def_complete_path(App.Path) & "notify.wav")
         Me.Line (Me.ScaleWidth - 3, 0)-(Me.ScaleWidth, Me.ScaleHeight - 1), RGBBright(vbWhite, 200), BF
 
     Case 1
-        If bnSOUND Then PlayWAVAsync (LowPath(App.Path) & "information.wav")
+        If bnSOUND Then PlayWAVAsync (def_complete_path(App.Path) & "information.wav")
         Me.Line (Me.ScaleWidth - 3, 0)-(Me.ScaleWidth, Me.ScaleHeight - 1), vbBlue, BF
 
     Case 2
-        If bnSOUND Then PlayWAVAsync (LowPath(App.Path) & "network.wav")
+        If bnSOUND Then PlayWAVAsync (def_complete_path(App.Path) & "network.wav")
         Me.Line (Me.ScaleWidth - 3, 0)-(Me.ScaleWidth, Me.ScaleHeight - 1), RGBBright(vbGreen, 128), BF
 
     Case 3
-        If bnSOUND Then PlayWAVAsync (LowPath(App.Path) & "limit.wav")
+        If bnSOUND Then PlayWAVAsync (def_complete_path(App.Path) & "limit.wav")
         Me.Line (Me.ScaleWidth - 3, 0)-(Me.ScaleWidth, Me.ScaleHeight - 1), vbRed, BF
         Me.Line (1, 1)-(3, Me.ScaleHeight), RGB(200, 200, 200), BF
 

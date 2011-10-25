@@ -55,7 +55,7 @@ End Function
 
 Function ConfigFile()
     
-    ConfigFile = LowPath(App.Path) + App.EXEName + ".cfg"
+    ConfigFile = def_complete_path(App.Path) + App.EXEName + ".cfg"
 
 End Function
 

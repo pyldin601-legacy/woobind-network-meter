@@ -682,7 +682,7 @@ On Error Resume Next
 
 If Button = 1 Then
     Dim IRP As String
-    IRP = LowPath(App.Path) + "app_data.ini"
+    IRP = def_complete_path(App.Path) + "app_data.ini"
     WritePrivateProfileString "Window Position", "Left", CStr(Fix(frmOK.Left / 15)), IRP
 End If
 
