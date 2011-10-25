@@ -290,11 +290,11 @@ End Function
 Function GetSettingFake(inAPP As String, inSection As String, inOPTION As String, inDefault)
 
     Dim IRP As String, iVal As String
-    IRP = LowPath(App.Path) + "app_data.ini"
+    IRP = def_complete_path(App.Path) + "app_data.ini"
 
     iVal = String(256, 32)
     GetPrivateProfileString inSection, inOPTION, inDefault, iVal, Len(iVal), IRP
-    GetSettingFake = KillNull(iVal)
+    GetSettingFake = def_cut_by_zero(iVal)
 
 End Function
 
@@ -303,7 +303,7 @@ Sub RegisterAutorun()
     Dim nKey As String: nKey = "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
     Dim ret&, vz As Long
        
-    SetKeyValue HKEY_LOCAL_MACHINE, nKey, "wnmeter", LowPath(App.Path) + "wnmeter.exe", REG_SZ
+    SetKeyValue HKEY_LOCAL_MACHINE, nKey, "wnmeter", def_complete_path(App.Path) + "wnmeter.exe", REG_SZ
 
 End Sub
 
@@ -324,7 +324,7 @@ Function CheckAutorun() As Boolean
     Dim ret&, vz As String
        
     vz = QueryValue(HKEY_LOCAL_MACHINE, nKey, "wnmeter")
-    If LCase(vz) = LCase(LowPath(App.Path) + "wnmeter.exe" & vbNullChar) Then CheckAutorun = True: Exit Function
+    If LCase(vz) = LCase(def_complete_path(App.Path) + "wnmeter.exe" & vbNullChar) Then CheckAutorun = True: Exit Function
 
 errores:
     CheckAutorun = False

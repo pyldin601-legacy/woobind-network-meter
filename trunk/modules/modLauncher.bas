@@ -158,7 +158,7 @@ Sub LoadlRecords()
 
     i = FreeFile
 
-    Open LowPath(App.Path) & "launch.dat" For Random As #i Len = Len(lR)
+    Open def_complete_path(App.Path) & "launch.dat" For Random As #i Len = Len(lR)
 
     j = LOF(i) / Len(lRecord(0))
     If j > 0 Then ReDim lRecord(1 To j) As lRecord
@@ -180,8 +180,8 @@ Sub SavelRecords()
 
     i = FreeFile
 
-    Open LowPath(App.Path) & "launch.dat" For Output As #i: Close #i
-    Open LowPath(App.Path) & "launch.dat" For Random As #i Len = Len(lR)
+    Open def_complete_path(App.Path) & "launch.dat" For Output As #i: Close #i
+    Open def_complete_path(App.Path) & "launch.dat" For Random As #i Len = Len(lR)
 
     j = UBound(lRecord)
 

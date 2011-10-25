@@ -2161,9 +2161,9 @@ Function AbonPeriod(index As abPeriod) As String
 End Function
 
 Sub EnableBonusCtrls()
-txtXmitBonus.Enabled = optMode(1).Value And CBol(chkBonus.Value)
-txtRcvBonus.Enabled = optMode(1).Value And CBol(chkBonus.Value)
-txtBothBonus.Enabled = optMode(0).Value And CBol(chkBonus.Value)
+txtXmitBonus.Enabled = optMode(1).Value And def_any_to_bool(chkBonus.Value)
+txtRcvBonus.Enabled = optMode(1).Value And def_any_to_bool(chkBonus.Value)
+txtBothBonus.Enabled = optMode(0).Value And def_any_to_bool(chkBonus.Value)
 
 If txtXmitBonus.Enabled Then txtXmitBonus.BackColor = vbWindowBackground Else txtXmitBonus.BackColor = vbButtonFace
 If txtRcvBonus.Enabled Then txtRcvBonus.BackColor = vbWindowBackground Else txtRcvBonus.BackColor = vbButtonFace
@@ -2173,14 +2173,14 @@ If Not txtXmitBonus.Enabled Then txtXmitBonus.Text = ""
 If Not txtRcvBonus.Enabled Then txtRcvBonus.Text = ""
 If Not txtBothBonus.Enabled Then txtBothBonus.Text = ""
 
-txtMinus.Enabled = CBol(chkValBonus.Value) And CBol(chkBonus.Value)
+txtMinus.Enabled = def_any_to_bool(chkValBonus.Value) And def_any_to_bool(chkBonus.Value)
 If txtMinus.Enabled Then txtMinus.BackColor = vbWindowBackground Else txtMinus.BackColor = vbButtonFace
 
 
-chkValBonus.Enabled = CBol(chkBonus.Value)
-optMode(0).Enabled = CBol(chkBonus.Value)
-optMode(1).Enabled = CBol(chkBonus.Value)
-cbDir.Enabled = CBol(chkBonus.Value)
+chkValBonus.Enabled = def_any_to_bool(chkBonus.Value)
+optMode(0).Enabled = def_any_to_bool(chkBonus.Value)
+optMode(1).Enabled = def_any_to_bool(chkBonus.Value)
+cbDir.Enabled = def_any_to_bool(chkBonus.Value)
 
 End Sub
 
@@ -2339,29 +2339,29 @@ End Sub
 
 Private Sub chkFloatWindow_Click()
 sC
-chkSafe.Enabled = CBol(chkFloatWindow.Value)
-chkOnTop.Enabled = CBol(chkFloatWindow.Value)
-chkConOnly.Enabled = CBol(chkFloatWindow.Value)
-chkAlwaysVisible.Enabled = CBol(chkFloatWindow.Value)
+chkSafe.Enabled = def_any_to_bool(chkFloatWindow.Value)
+chkOnTop.Enabled = def_any_to_bool(chkFloatWindow.Value)
+chkConOnly.Enabled = def_any_to_bool(chkFloatWindow.Value)
+chkAlwaysVisible.Enabled = def_any_to_bool(chkFloatWindow.Value)
 
-Combo1.Enabled = CBol(chkFloatWindow.Value)
-Combo2.Enabled = CBol(chkFloatWindow.Value)
-Combo3.Enabled = CBol(chkFloatWindow.Value)
+Combo1.Enabled = def_any_to_bool(chkFloatWindow.Value)
+Combo2.Enabled = def_any_to_bool(chkFloatWindow.Value)
+Combo3.Enabled = def_any_to_bool(chkFloatWindow.Value)
 
 End Sub
 
 Private Sub chklimuse_Click()
-txtLimit.Enabled = CBol(chklimuse.Value)
-cmbDividers.Enabled = CBol(chklimuse.Value)
-cmbWay.Enabled = CBol(chklimuse.Value)
-optLimit(0).Enabled = CBol(chklimuse.Value)
-optLimit(1).Enabled = CBol(chklimuse.Value)
-optLimit(2).Enabled = CBol(chklimuse.Value)
-optLimit(3).Enabled = CBol(chklimuse.Value)
-cmbLine.Enabled = CBol(chklimuse.Value)
-chkTray.Enabled = CBol(chklimuse.Value)
-chkPreLimit.Enabled = CBol(chklimuse.Value)
-cmbLine.Enabled = CBol(chklimuse.Value) And CBol(chkPreLimit.Value)
+txtLimit.Enabled = def_any_to_bool(chklimuse.Value)
+cmbDividers.Enabled = def_any_to_bool(chklimuse.Value)
+cmbWay.Enabled = def_any_to_bool(chklimuse.Value)
+optLimit(0).Enabled = def_any_to_bool(chklimuse.Value)
+optLimit(1).Enabled = def_any_to_bool(chklimuse.Value)
+optLimit(2).Enabled = def_any_to_bool(chklimuse.Value)
+optLimit(3).Enabled = def_any_to_bool(chklimuse.Value)
+cmbLine.Enabled = def_any_to_bool(chklimuse.Value)
+chkTray.Enabled = def_any_to_bool(chklimuse.Value)
+chkPreLimit.Enabled = def_any_to_bool(chklimuse.Value)
+cmbLine.Enabled = def_any_to_bool(chklimuse.Value) And def_any_to_bool(chkPreLimit.Value)
 sC
 End Sub
 
@@ -2391,7 +2391,7 @@ End Sub
 
 
 Private Sub chkPreLimit_Click()
-cmbLine.Enabled = CBol(chklimuse.Value) And CBol(chkPreLimit.Value)
+cmbLine.Enabled = def_any_to_bool(chklimuse.Value) And def_any_to_bool(chkPreLimit.Value)
 sC
 End Sub
 
@@ -2408,7 +2408,7 @@ sC
 End Sub
 
 Private Sub chkTransparent_Click()
-sliAlpha.Enabled = CBol(chkTransparent.Value)
+sliAlpha.Enabled = def_any_to_bool(chkTransparent.Value)
 sC
 End Sub
 
@@ -2535,10 +2535,10 @@ Sub ExchangeWith(inValue As ComctlLib.ListItem, outValue As ComctlLib.ListItem)
 End Sub
 
 Private Sub cNotifyTest_Click()
-PoP.ShowPopup "Woobind Network Meter", localize_do("TEST01", "Это обычное сообщение\nКликните чтобы закрыть..."), 0, CBol(chkSound.Value), CBol(chkShowTop.Value)
-PoP.ShowPopup "Woobind Network Meter", localize_do("TEST02", "Это простое уведомление"), 1, CBol(chkSound.Value), CBol(chkShowTop.Value)
-PoP.ShowPopup "Woobind Network Meter", localize_do("TEST03", "Это уведомление повышеной важности"), 2, CBol(chkSound.Value), CBol(chkShowTop.Value)
-PoP.ShowPopup "Woobind Network Meter", localize_do("TEST04", "А это сообщение высокой важности!\nКликните мышкой чтобы закрыть..."), 3, CBol(chkSound.Value), CBol(chkShowTop.Value)
+PoP.ShowPopup "Woobind Network Meter", localize_do("TEST01", "Это обычное сообщение\nКликните чтобы закрыть..."), 0, def_any_to_bool(chkSound.Value), def_any_to_bool(chkShowTop.Value)
+PoP.ShowPopup "Woobind Network Meter", localize_do("TEST02", "Это простое уведомление"), 1, def_any_to_bool(chkSound.Value), def_any_to_bool(chkShowTop.Value)
+PoP.ShowPopup "Woobind Network Meter", localize_do("TEST03", "Это уведомление повышеной важности"), 2, def_any_to_bool(chkSound.Value), def_any_to_bool(chkShowTop.Value)
+PoP.ShowPopup "Woobind Network Meter", localize_do("TEST04", "А это сообщение высокой важности!\nКликните мышкой чтобы закрыть..."), 3, def_any_to_bool(chkSound.Value), def_any_to_bool(chkShowTop.Value)
 End Sub
 
 Private Sub Combo1_Click()
@@ -2559,7 +2559,7 @@ Private Sub Command1_Click()
 On Error Resume Next
 
 If MsgBox(localize_do("MSG010", "Вы действительно хотите очистить отчет и обнулить все счетчики?"), vbQuestion + vbYesNo, "Woobind Network Meter") = vbYes Then
-   Kill LowPath(App.Path) + "app_data.rpt"
+   Kill def_complete_path(App.Path) + "app_data.rpt"
    frmVelton.mReall_Click
 End If
 
@@ -2712,7 +2712,7 @@ lstProcesses.ColumnHeaders(1).Text = localize_do("B326AB")
 lstProcesses.ColumnHeaders(2).Text = localize_do("B326AA")
 
 Dim tmpData As String
-tmpData = FilterLanguage(LoadFile(LowPath(App.Path) + "credits.txt"), LanguageName)
+tmpData = FilterLanguage(LoadFile(def_complete_path(App.Path) + "credits.txt"), LanguageName)
 
 txtTitles.Text = IIf(tmpData > "", tmpData, "'credits.txt' not found!")
 
@@ -2806,7 +2806,7 @@ chkShowTop.Value = Val(-ShowTop)
 
 
 ' /// VERSION HISTORY
-txtVersion.Text = IIf(LoadFile(LowPath(App.Path) + "vhist.txt") > "", LoadFile(LowPath(App.Path) + "vhist.txt"), "Файл истории не найден")
+txtVersion.Text = IIf(LoadFile(def_complete_path(App.Path) + "vhist.txt") > "", LoadFile(def_complete_path(App.Path) + "vhist.txt"), "Файл истории не найден")
 
 
 ' //
@@ -2857,7 +2857,7 @@ Sub LoadConfig_Main()
     pingSel(PingMode).Value = True
 
     ' >>OPTIONS
-    chkAutorun.Value = Bol2Int(CheckAutorun)        ' Update autorun setting
+    chkAutorun.Value = def_bool_to_int(CheckAutorun)        ' Update autorun setting
     chkUpdate.Value = Val(-EveryDayCheck)           ' Update updating option
     chkAttach.Value = Val(-MainWindowAttach)
     chkTransparent.Value = Val(-MainWindowAlpha)
@@ -3219,15 +3219,15 @@ Else
     Call ListProcesses
 End If
 
-UseAutostart = CBol(prcEnable.Value)
-UseAutostop = CBol(prcStop.Value)
-UseLinkDown = CBol(prcLinkDown.Value)
-UseAutoNotify = CBol(chkStartNotify.Value)
+UseAutostart = def_any_to_bool(prcEnable.Value)
+UseAutostop = def_any_to_bool(prcStop.Value)
+UseLinkDown = def_any_to_bool(prcLinkDown.Value)
+UseAutoNotify = def_any_to_bool(chkStartNotify.Value)
 
 ' // SORTED
 ' // FRAME 0
 ' >> INTERFACE
-PingNetwork = CBol(chkPing.Value)
+PingNetwork = def_any_to_bool(chkPing.Value)
 If pingSel(0).Value = True Then PingMode = 0 Else PingMode = 1
 PingManual = pingAddr.Text
 If Not cmbInterfaces.Text = "" Then
@@ -3235,22 +3235,22 @@ If Not cmbInterfaces.Text = "" Then
 End If
 
 ' >> OPTIONS
-EveryDayCheck = CBol(chkUpdate.Value)
-MainWindowAttach = CBol(chkAttach.Value)
-MainWindowAlpha = CBol(chkTransparent.Value)
+EveryDayCheck = def_any_to_bool(chkUpdate.Value)
+MainWindowAttach = def_any_to_bool(chkAttach.Value)
+MainWindowAlpha = def_any_to_bool(chkTransparent.Value)
 MainWindowAlphaLVL = sliAlpha.Value
 
 ' >> LANGUAGE
 Let LanguageName = cmbFiles.Text
-CacheStrings LowPath(App.Path) & LanguageName & ".slf"
+CacheStrings def_complete_path(App.Path) & LanguageName & ".slf"
 
 ' // FRAME 1 //
 ' >> WINDOW
-FloatWindow = CBol(chkFloatWindow.Value)
-FWrmr = CBol(chkSafe.Value)
-FWOnTop = CBol(chkOnTop.Value)
-FWOnline = CBol(chkConOnly.Value)
-FWAlwaysVisible = CBol(chkAlwaysVisible.Value)
+FloatWindow = def_any_to_bool(chkFloatWindow.Value)
+FWrmr = def_any_to_bool(chkSafe.Value)
+FWOnTop = def_any_to_bool(chkOnTop.Value)
+FWOnline = def_any_to_bool(chkConOnly.Value)
+FWAlwaysVisible = def_any_to_bool(chkAlwaysVisible.Value)
 
 ' >> TRAFFIC
 Mid(ComboLinks, 1, 1) = Format(Combo1.ListIndex, "0")
@@ -3284,19 +3284,19 @@ Next TT
 
 
 
-TipLimit = CBol(chkTray.Value)
-TipPreLimit = CBol(chkPreLimit.Value)
-TipSound = CBol(chkSound.Value)
-ShowTop = CBol(chkShowTop.Value)
-Use1024 = CBol(cT1024.Value)
+TipLimit = def_any_to_bool(chkTray.Value)
+TipPreLimit = def_any_to_bool(chkPreLimit.Value)
+TipSound = def_any_to_bool(chkSound.Value)
+ShowTop = def_any_to_bool(chkShowTop.Value)
+Use1024 = def_any_to_bool(cT1024.Value)
 
 
-LimUse = CBol(chklimuse.Value)
+LimUse = def_any_to_bool(chklimuse.Value)
 
 Call frmOK.InitOkForm
 
-FloatNotify = CBol(chkNotify.Value)
-notify_tax_change = CBol(chkBalonOK.Value)
+FloatNotify = def_any_to_bool(chkNotify.Value)
+notify_tax_change = def_any_to_bool(chkBalonOK.Value)
 
 
 frmVelton.RefreshPing
@@ -3357,7 +3357,7 @@ Private Sub prcEnable_Click()
 
 sC
 
-Call CtrEnable(CBol(prcEnable.Value), cmdMoveUp, cmdMoveDown, chkStartNotify, _
+Call CtrEnable(def_any_to_bool(prcEnable.Value), cmdMoveUp, cmdMoveDown, chkStartNotify, _
                                         prcRemove, prcAdd, lstProcesses, _
                                         prcLinkDown, prcStop)
 

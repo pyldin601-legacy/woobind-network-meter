@@ -677,7 +677,7 @@ lstShow.ListItems.Clear
 Label1.Caption = localize_do("xDAY", "День")
 
 
-Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
 IndexCount = LOF(i) / Len(StatType)
 
 For N = 1 To IndexCount
@@ -707,7 +707,7 @@ On Error Resume Next
 Dim IndexCount As Long, N As Long, z As String, zBuff As Currency, sBuff As Integer
 i = FreeFile
 
-Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
 IndexCount = LOF(i) / Len(StatType)
 
 For N = 1 To IndexCount
@@ -733,7 +733,7 @@ On Error Resume Next
 Dim IndexCount As Long, N As Long, z As String, zBuff As Currency, sBuff As String
 i = FreeFile
 
-Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
 IndexCount = LOF(i) / Len(StatType)
 
 For N = 1 To IndexCount
@@ -757,7 +757,7 @@ On Error Resume Next
 Dim IndexCount As Long, N As Long, z As String, zBuff As Currency, sBuff As String
 i = FreeFile
 
-Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
 IndexCount = LOF(i) / Len(StatType)
 
 For N = 1 To IndexCount
@@ -786,7 +786,7 @@ lstShow.ListItems.Clear
 Label1.Caption = "Подключение"
 
 
-Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
 IndexCount = LOF(i) / Len(StatType)
 
 For N = 1 To IndexCount
@@ -814,7 +814,7 @@ i = FreeFile
 lstShow.ListItems.Clear
 Label1.Caption = localize_do("xWEEK", "Неделя")
 
-Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
 IndexCount = LOF(i) / Len(StatType)
 
 For N = 1 To IndexCount
@@ -847,7 +847,7 @@ lstShow.ListItems.Clear
 Label1.Caption = localize_do("xMONTH", "Месяц")
 
 
-Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
 IndexCount = LOF(i) / Len(StatType)
 
 For N = 1 To IndexCount
@@ -879,7 +879,7 @@ lstShow.ListItems.Clear
 Label1.Caption = localize_do("B324E5", "Время")
 
 
-Open LowPath(App.Path) + "app_data.h48" For Random As #i Len = Len(lDay)
+Open def_complete_path(App.Path) + "app_data.h48" For Random As #i Len = Len(lDay)
 
 For N = 1 To 48
     Get #i, N, lDay
@@ -903,11 +903,11 @@ Sub RemoveSelected(inTitles() As String)
     Dim Scan As Boolean
     
     i = FreeFile
-    Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+    Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
     IndexCount = LOF(i) / Len(StatType)
     
     j = FreeFile
-    Open LowPath(App.Path) + "$$$app_data$$$.rpt" For Random As #j Len = Len(StatType)
+    Open def_complete_path(App.Path) + "$$$app_data$$$.rpt" For Random As #j Len = Len(StatType)
     
     For N = 1 To IndexCount
         Get i, N, StatType
@@ -923,8 +923,8 @@ Sub RemoveSelected(inTitles() As String)
     
     Close i, j
     
-    Kill LowPath(App.Path) + "app_data.rpt"
-    Name LowPath(App.Path) + "$$$app_data$$$.rpt" As LowPath(App.Path) + "app_data.rpt"
+    Kill def_complete_path(App.Path) + "app_data.rpt"
+    Name def_complete_path(App.Path) + "$$$app_data$$$.rpt" As def_complete_path(App.Path) + "app_data.rpt"
     
 End Sub
 
@@ -936,11 +936,11 @@ Sub RemoveSelectedH(inTitles() As String)
     Dim Scan As Boolean
     
     i = FreeFile
-    Open LowPath(App.Path) + "app_data.h48" For Random As #i Len = Len(lDay)
+    Open def_complete_path(App.Path) + "app_data.h48" For Random As #i Len = Len(lDay)
     IndexCount = LOF(i) / Len(lDay)
     
     j = FreeFile
-    Open LowPath(App.Path) + "$$$app_data$$$.h48" For Random As #j Len = Len(lDay)
+    Open def_complete_path(App.Path) + "$$$app_data$$$.h48" For Random As #j Len = Len(lDay)
     
     For N = 1 To IndexCount
         Get i, N, lDay
@@ -956,8 +956,8 @@ Sub RemoveSelectedH(inTitles() As String)
     
     Close i, j
     
-    Kill LowPath(App.Path) + "app_data.h48"
-    Name LowPath(App.Path) + "$$$app_data$$$.h48" As LowPath(App.Path) + "app_data.h48"
+    Kill def_complete_path(App.Path) + "app_data.h48"
+    Name def_complete_path(App.Path) + "$$$app_data$$$.h48" As def_complete_path(App.Path) + "app_data.h48"
     
 End Sub
 
@@ -991,7 +991,7 @@ lstShow.ListItems.Clear
 Label1.Caption = localize_do("xYEAR", "Год")
 
 
-Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
 IndexCount = LOF(i) / Len(StatType)
 
 For N = 1 To IndexCount
@@ -1236,8 +1236,8 @@ Private Sub mnuClearAll_Click()
     
     On Error Resume Next
     If MsgBox(localize_do("B324M5", "Вы уверены, что хотите очистить ВСЕ отчеты по трафику?"), vbQuestion + vbYesNo) = vbYes Then
-        Kill LowPath(App.Path) & "app_data.h48"
-        Kill LowPath(App.Path) & "app_data.rpt"
+        Kill def_complete_path(App.Path) & "app_data.h48"
+        Kill def_complete_path(App.Path) & "app_data.rpt"
         RefreshX
     End If
 

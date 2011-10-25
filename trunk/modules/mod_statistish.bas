@@ -64,7 +64,7 @@ Sub SaveTodayStatistish(inXm As Currency, inRc As Currency, inTax As Currency)
     xNow = Now
     DayNow = Format(xNow, "yyyy.mm.dd")
 
-    Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+    Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
         IndexCount = LOF(i) / Len(StatType)
         For N = 1 To IndexCount
             Get #i, N, StatType
@@ -98,7 +98,7 @@ Sub SaveCurrentHourStatistic(inXm As Currency, inRc As Currency, inTax As Curren
     i = FreeFile
     xNow = inHour
 
-    Open LowPath(App.Path) + "app_data.h48" For Random As #i Len = Len(lDay)
+    Open def_complete_path(App.Path) + "app_data.h48" For Random As #i Len = Len(lDay)
         IndexCount = LOF(i) / Len(lDay)
         lDay.ldRcved = inRc
         lDay.ldXmited = inXm
@@ -119,7 +119,7 @@ Sub SaveNewHourStatistic(inXm As Currency, inRc As Currency, inTax As Currency, 
     i = FreeFile
     xNow = inHour
 
-    Open LowPath(App.Path) + "app_data.h48" For Random As #i Len = Len(lDay)
+    Open def_complete_path(App.Path) + "app_data.h48" For Random As #i Len = Len(lDay)
      
         For N = 1 To 48 Step 1
             Get #i, N, lDay
@@ -154,7 +154,7 @@ End Sub
 'DayNow = "Connection " & Format(stConnection, "0")
 '
 '
-'Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+'Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
 'IndexCount = LOF(i) / Len(StatType)
 'For N = 1 To IndexCount
 ' Get #i, N, StatType
@@ -191,14 +191,14 @@ Sub SaveWeekStatistish(inXm As Currency, inRc As Currency, inTax As Currency)
     xNow = Now
     
     DayNow = Year(xNow) & GetWeek(Day(xNow), Month(xNow), Year(xNow))
-    Tx = GetLongFromData(Day(xNow), Month(xNow), Year(xNow))
-    TxA = Tx - (Weekday(xNow, vbMonday) - 1)
+    tx = GetLongFromData(Day(xNow), Month(xNow), Year(xNow))
+    TxA = tx - (Weekday(xNow, vbMonday) - 1)
     TxB = TxA + (Weekday(xNow, vbMonday) - 1)
 
     tra = Format(DateSerial(Year(xNow), 1, TxA), "dd mmm yyyy")
     trb = Format(DateSerial(Year(xNow), 1, TxB), "dd mmm yyyy")
 
-    Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+    Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
         IndexCount = LOF(i) / Len(StatType)
         For N = 1 To IndexCount
             Get #i, N, StatType
@@ -234,7 +234,7 @@ Sub SaveMonthStatistish(inXm As Currency, inRc As Currency, inTax As Currency)
 
     DayNow = Format(Year(xNow), "0000") & Format(Month(xNow), "00")
 
-    Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+    Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
         IndexCount = LOF(i) / Len(StatType)
         For N = 1 To IndexCount
             Get #i, N, StatType
@@ -269,7 +269,7 @@ Sub SaveYearStatistish(inXm As Currency, inRc As Currency, inTax As Currency)
     xNow = Now
     DayNow = Format(Year(xNow), "0000")
 
-    Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+    Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
         IndexCount = LOF(i) / Len(StatType)
         For N = 1 To IndexCount
             Get #i, N, StatType
@@ -306,7 +306,7 @@ Function CountTrafficPerMonth(inMonth As Integer, inDirection As Integer, inOPTI
     i = FreeFile
     inSum = 0: inMon = 0: inCnt = 0: lftDate = 0
 
-    Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+    Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
         IndexCount = LOF(i) / Len(StatType)
         For N = 1 To IndexCount
             Get #i, N, StatType
@@ -346,18 +346,18 @@ Function AverageCap(inMonth As Integer, inDay As Integer, inDirection As Integer
     i = FreeFile
     inSum = 0: inMon = 0: inCnt = 0: lftDate = 0
 
-    Open LowPath(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
+    Open def_complete_path(App.Path) + "app_data.rpt" For Random As #i Len = Len(StatType)
         IndexCount = LOF(i) / Len(StatType)
         For N = 1 To IndexCount
             Get #i, N, StatType
-            If StatType.stType = ST_MODE.ST_DAILY And GetLongFromDataEx(Day(Trim(StatType.stDATE)), Month(Trim(StatType.stDATE)), Year(Trim(StatType.stDATE))) = GetLongFromDataEx(inDay, inMonth, inYear) Then
+            If StatType.stType = ST_MODE.ST_DAILY And def_date_to_long(Day(Trim(StatType.stDATE)), Month(Trim(StatType.stDATE)), Year(Trim(StatType.stDATE))) = def_date_to_long(inDay, inMonth, inYear) Then
                 rcTMP = StatType.stRc
                 xmTMP = StatType.stXm
                 mnTMP = StatType.stTax
       
             End If
  
-            If StatType.stType = ST_MODE.ST_DAILY And GetLongFromDataEx(Day(Trim(StatType.stDATE)), Month(Trim(StatType.stDATE)), Year(Trim(StatType.stDATE))) < GetLongFromDataEx(inDay, inMonth, inYear) And GetLongFromDataEx(Day(Trim(StatType.stDATE)), Month(Trim(StatType.stDATE)), Year(Trim(StatType.stDATE))) >= GetLongFromDataEx(inDay, inMonth, inYear) - 4 Then
+            If StatType.stType = ST_MODE.ST_DAILY And def_date_to_long(Day(Trim(StatType.stDATE)), Month(Trim(StatType.stDATE)), Year(Trim(StatType.stDATE))) < def_date_to_long(inDay, inMonth, inYear) And def_date_to_long(Day(Trim(StatType.stDATE)), Month(Trim(StatType.stDATE)), Year(Trim(StatType.stDATE))) >= def_date_to_long(inDay, inMonth, inYear) - 4 Then
                 inCnt = inCnt + 1
                 inMon = inMon + StatType.stTax
                 Select Case inDirection

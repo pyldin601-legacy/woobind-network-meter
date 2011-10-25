@@ -1508,7 +1508,7 @@ Sub SaveFormPosition()
 Dim MeLeft As Long, MeTop As Long
 Dim IRP As String
 
-IRP = LowPath(App.Path) + "app_data.ini"
+IRP = def_complete_path(App.Path) + "app_data.ini"
 
 MeLeft = Me.Left / 15: MeTop = Me.Top / 15
 
@@ -1835,7 +1835,7 @@ MainWindowAlphaLVL = GetSettingFake("Network Meter\" + IRP, "Configuration", "Ma
 
 ' >> LANGUAGE
 LanguageName = GetSettingFake("Network Meter\" + IRP, "Configuration", "LanguageName", "Russian")
-CacheStrings LowPath(App.Path) & LanguageName & ".slf"
+CacheStrings def_complete_path(App.Path) & LanguageName & ".slf"
 
 ' // FRAME 1
 ' >> WINDOW
@@ -1877,7 +1877,7 @@ CreditLeft = CCur(GetSettingFake("Network Meter\" + IRP, "Credit Settings", "Cre
 DataBonusRcved = Val(GetSettingFake("Network Meter\" + IRP, "Bonus", "DataBonusRcved", "0"))
 DataBonusXmited = Val(GetSettingFake("Network Meter\" + IRP, "Bonus", "DataBonusXmited", "0"))
 DataBonusBoth = Val(GetSettingFake("Network Meter\" + IRP, "Bonus", "DataBonusBoth", "0"))
-DataBonusEnabled = CBol(GetSettingFake("Network Meter\" + IRP, "Bonus", "DataBonusEnabled", False))
+DataBonusEnabled = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Bonus", "DataBonusEnabled", False))
 DataBonusMode = Val(GetSettingFake("Network Meter\" + IRP, "Bonus", "DataBonusMode", "0"))
 
 
@@ -1915,7 +1915,7 @@ TaxAll = CCur(GetSettingFake("Network Meter\" + IRP, "Taxes", "TaxAll", "0"))
 TaxCount = CCur(GetSettingFake("Network Meter\" + IRP, "Taxes", "TaxCount", "0"))
 tax_taxing_traffic = Val(GetSettingFake("Network Meter\" + IRP, "Taxes", "CredMode", "0"))
 TaxName = GetSettingFake("Network Meter\" + IRP, "Taxes", "TaxName", "грн.")
-notify_tax_change = CBol(GetSettingFake("Network Meter\" + IRP, "Taxes", "TaxChanged", 0))
+notify_tax_change = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Taxes", "TaxChanged", 0))
 
 ' Load configuration
 timeActive = Val(GetSettingFake("Network Meter\" + IRP, "Configuration", "timeActive", "0"))
@@ -1925,10 +1925,10 @@ dayBegin = Val(GetSettingFake("Network Meter\" + IRP, "Configuration", "CountBeg
 lOption = Val(GetSettingFake("Network Meter\" + IRP, "Configuration", "LastOption", "0"))
 
 ' Load fw settings
-FloatNotify = CBol(GetSettingFake("Network Meter\" + IRP, "Configuration", "FloatNotify", True))
-FRun = CBol(GetSettingFake("Network Meter\" + IRP, "Configuration", "First Run", True))
+FloatNotify = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Configuration", "FloatNotify", True))
+FRun = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Configuration", "First Run", True))
 
-Use1024 = CBol(GetSettingFake("Network Meter\" + IRP, "Configuration", "Use1024", False))
+Use1024 = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Configuration", "Use1024", False))
 
 ' Load ping settings
 
@@ -1947,10 +1947,10 @@ CurrentHour = GetSettingFake("Network Meter\" + IRP, "Save Checkpoint", "Current
 stConnection = Val(GetSettingFake("Network Meter\" + IRP, "Save Checkpoint", "stConnection", "0"))
 
 ' Load Autostart
-UseAutostart = CBol(GetSettingFake("Network Meter\" + IRP, "Autostart", "UseAutostart", False))
-UseAutostop = CBol(GetSettingFake("Network Meter\" + IRP, "Autostart", "UseAutostop", False))
-UseLinkDown = CBol(GetSettingFake("Network Meter\" + IRP, "Autostart", "UseLinkDown", False))
-UseAutoNotify = CBol(GetSettingFake("Network Meter\" + IRP, "Autostart", "UseAutoNotify", False))
+UseAutostart = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Autostart", "UseAutostart", False))
+UseAutostop = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Autostart", "UseAutostop", False))
+UseLinkDown = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Autostart", "UseLinkDown", False))
+UseAutoNotify = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Autostart", "UseAutoNotify", False))
 
 
 ' Load Abonetic
@@ -2134,7 +2134,7 @@ superMenu.Check1.Value = 1 - superMenu.Check1.Value
 If superMenu.Check1.Value > 0 Then RegisterAutorun
 If superMenu.Check1.Value = 0 Then UnRegisterAutorun
 
-superMenu.Check1.Value = Bol2Int(CheckAutorun)
+superMenu.Check1.Value = def_bool_to_int(CheckAutorun)
 
 End Sub
 
@@ -2268,41 +2268,41 @@ On Error Resume Next
 
 
 Dim IRP As String
-IRP = LowPath(App.Path) + "app_data.ini"
+IRP = def_complete_path(App.Path) + "app_data.ini"
 
 ' // SORTED OPTIONS
 ' // FRAME 0
 ' >> INTERFACES
-WritePrivateProfileString "Ping Settings", "PingNetwork", xStr(PingNetwork), IRP
+WritePrivateProfileString "Ping Settings", "PingNetwork", def_bool_to_str(PingNetwork), IRP
 WritePrivateProfileString "Ping Settings", "PingMode", CStr(PingMode), IRP
 WritePrivateProfileString "Ping Settings", "PingManual", CStr(PingManual), IRP
 WritePrivateProfileString "Configuration", "ActiveInterface", iph_interface_encode(iph_interface), IRP
 
 ' >> OPTIONS
-WritePrivateProfileString "Configuration", "CheckUpdate", xStr(EveryDayCheck), IRP
-WritePrivateProfileString "Configuration", "MainWindowAttach", xStr(MainWindowAttach), IRP
-WritePrivateProfileString "Configuration", "MainWindowAlpha", xStr(MainWindowAlpha), IRP
+WritePrivateProfileString "Configuration", "CheckUpdate", def_bool_to_str(EveryDayCheck), IRP
+WritePrivateProfileString "Configuration", "MainWindowAttach", def_bool_to_str(MainWindowAttach), IRP
+WritePrivateProfileString "Configuration", "MainWindowAlpha", def_bool_to_str(MainWindowAlpha), IRP
 WritePrivateProfileString "Configuration", "MainWindowAlphaLVL", CStr(MainWindowAlphaLVL), IRP
 
-WritePrivateProfileString "Configuration", "Use1024", xStr(Use1024), IRP
+WritePrivateProfileString "Configuration", "Use1024", def_bool_to_str(Use1024), IRP
 
 ' >> LANGUAGE
 WritePrivateProfileString "Configuration", "LanguageName", LanguageName, IRP
 
 ' // LIMITER
 ' >> LIMIT
-WritePrivateProfileString "Limits", "LimUse", xStr(LimUse), IRP
+WritePrivateProfileString "Limits", "LimUse", def_bool_to_str(LimUse), IRP
 WritePrivateProfileString "Limits", "DataLimit", CStr(DataLimit), IRP
 WritePrivateProfileString "Limits", "DataLimitDivide", CStr(DataLimitDivide), IRP
 WritePrivateProfileString "Limits", "DataLimitMode", CStr(DataLimitMode), IRP
 WritePrivateProfileString "Limits", "DataLimitWay", CStr(DataLimitWay), IRP
 
 ' >> NOTIFY
-WritePrivateProfileString "Limits", "TipLimit", xStr(TipLimit), IRP
+WritePrivateProfileString "Limits", "TipLimit", def_bool_to_str(TipLimit), IRP
 WritePrivateProfileString "Limits", "LimitLine", CStr(LimitLine), IRP
-WritePrivateProfileString "Limits", "TipPreLimit", xStr(TipPreLimit), IRP
-WritePrivateProfileString "Limits", "TipSound", xStr(TipSound), IRP
-WritePrivateProfileString "Limits", "ShowTop", xStr(ShowTop), IRP
+WritePrivateProfileString "Limits", "TipPreLimit", def_bool_to_str(TipPreLimit), IRP
+WritePrivateProfileString "Limits", "TipSound", def_bool_to_str(TipSound), IRP
+WritePrivateProfileString "Limits", "ShowTop", def_bool_to_str(ShowTop), IRP
 
 
 ' // TARIFF
@@ -2316,7 +2316,7 @@ WritePrivateProfileString "Credit Settings", "CreditsLeft", CStr(CreditLeft), IR
 WritePrivateProfileString "Bonus", "DataBonusRcved", CStr(DataBonusRcved), IRP
 WritePrivateProfileString "Bonus", "DataBonusXmited", CStr(DataBonusXmited), IRP
 WritePrivateProfileString "Bonus", "DataBonusBoth", CStr(DataBonusBoth), IRP
-WritePrivateProfileString "Bonus", "DataBonusEnabled", xStr(DataBonusEnabled), IRP
+WritePrivateProfileString "Bonus", "DataBonusEnabled", def_bool_to_str(DataBonusEnabled), IRP
 WritePrivateProfileString "Bonus", "DataBonusMode", CStr(DataBonusMode), IRP
 
 WritePrivateProfileString "Counter Values", "DataXmitedToday", CStr(DataXmitedToday), IRP
@@ -2341,15 +2341,15 @@ WritePrivateProfileString "Taxes", "TaxAll", CStr(TaxAll), IRP
 WritePrivateProfileString "Taxes", "TaxCount", CStr(TaxCount), IRP
 WritePrivateProfileString "Taxes", "CredMode", CStr(tax_taxing_traffic), IRP
 WritePrivateProfileString "Taxes", "TaxName", TaxName, IRP
-WritePrivateProfileString "Taxes", "TaxChanged", xStr(notify_tax_change), IRP
+WritePrivateProfileString "Taxes", "TaxChanged", def_bool_to_str(notify_tax_change), IRP
 
 
 WritePrivateProfileString "Configuration", "timeActive", CStr(timeActive), IRP
 WritePrivateProfileString "Configuration", "MaximumDetectedUp", CStr(MaxxSpeed(1)), IRP
 WritePrivateProfileString "Configuration", "MaximumDetectedDown", CStr(MaxxSpeed(2)), IRP
 WritePrivateProfileString "Configuration", "CountBegin", CStr(dayBegin), CStr(IRP)
-WritePrivateProfileString "Configuration", "FloatWindow", xStr(FloatWindow), IRP
-WritePrivateProfileString "Configuration", "FloatNotify", xStr(FloatNotify), IRP
+WritePrivateProfileString "Configuration", "FloatWindow", def_bool_to_str(FloatWindow), IRP
+WritePrivateProfileString "Configuration", "FloatNotify", def_bool_to_str(FloatNotify), IRP
 WritePrivateProfileString "Configuration", "First Run", "False", IRP
 WritePrivateProfileString "Configuration", "LastOption", CStr(lOption), IRP
 WritePrivateProfileString "Configuration", "Combo", ComboLinks, IRP
@@ -2357,10 +2357,10 @@ WritePrivateProfileString "Configuration", "Combo", ComboLinks, IRP
 
 
 WritePrivateProfileString "Window Position", "Left", CStr(Fix(frmOK.Left / 15)), IRP
-WritePrivateProfileString "Window Position", "FWOnTop", xStr(FWOnTop), IRP
-WritePrivateProfileString "Window Position", "FWrmr", xStr(FWrmr), IRP
-WritePrivateProfileString "Window Position", "FWOnline", xStr(FWOnline), IRP
-WritePrivateProfileString "Window Position", "FWAlwaysVisible", xStr(FWAlwaysVisible), IRP
+WritePrivateProfileString "Window Position", "FWOnTop", def_bool_to_str(FWOnTop), IRP
+WritePrivateProfileString "Window Position", "FWrmr", def_bool_to_str(FWrmr), IRP
+WritePrivateProfileString "Window Position", "FWOnline", def_bool_to_str(FWOnline), IRP
+WritePrivateProfileString "Window Position", "FWAlwaysVisible", def_bool_to_str(FWAlwaysVisible), IRP
 
 
 WritePrivateProfileString "Save Checkpoint", "CurrentYear", CStr(CurrYear), IRP
@@ -2369,10 +2369,10 @@ WritePrivateProfileString "Save Checkpoint", "CurrentWeek", CStr(CurrWeek), IRP
 WritePrivateProfileString "Save Checkpoint", "CurrentDay", CStr(CurrDay), IRP
 WritePrivateProfileString "Save Checkpoint", "stConnection", CStr(stConnection), IRP
 
-WritePrivateProfileString "Autostart", "UseAutoNotify", xStr(UseAutoNotify), IRP
-WritePrivateProfileString "Autostart", "UseAutostart", xStr(UseAutostart), IRP
-WritePrivateProfileString "Autostart", "UseAutostop", xStr(UseAutostop), IRP
-WritePrivateProfileString "Autostart", "UseLinkdown", xStr(UseLinkDown), IRP
+WritePrivateProfileString "Autostart", "UseAutoNotify", def_bool_to_str(UseAutoNotify), IRP
+WritePrivateProfileString "Autostart", "UseAutostart", def_bool_to_str(UseAutostart), IRP
+WritePrivateProfileString "Autostart", "UseAutostop", def_bool_to_str(UseAutostop), IRP
+WritePrivateProfileString "Autostart", "UseLinkdown", def_bool_to_str(UseLinkDown), IRP
 
 
 ' Save Abonetic
@@ -2395,7 +2395,7 @@ On Error Resume Next
 
 
 Dim IRP As String
-IRP = LowPath(App.Path) + "app_data.ini"
+IRP = def_complete_path(App.Path) + "app_data.ini"
 
 '////
 WritePrivateProfileString "Credit Settings", "CreditsLeft", CStr(CreditLeft), IRP
@@ -2403,7 +2403,7 @@ WritePrivateProfileString "Credit Settings", "CreditsLeft", CStr(CreditLeft), IR
 WritePrivateProfileString "Bonus", "DataBonusRcved", CStr(DataBonusRcved), IRP
 WritePrivateProfileString "Bonus", "DataBonusXmited", CStr(DataBonusXmited), IRP
 WritePrivateProfileString "Bonus", "DataBonusBoth", CStr(DataBonusBoth), IRP
-WritePrivateProfileString "Bonus", "DataBonusEnabled", xStr(DataBonusEnabled), IRP
+WritePrivateProfileString "Bonus", "DataBonusEnabled", def_bool_to_str(DataBonusEnabled), IRP
 WritePrivateProfileString "Bonus", "DataBonusMode", CStr(DataBonusMode), IRP
 
 WritePrivateProfileString "Counter Values", "DataXmitedToday", CStr(DataXmitedToday), IRP
@@ -2430,7 +2430,7 @@ WritePrivateProfileString "Taxes", "TaxYear", CStr(TaxYear), IRP
 WritePrivateProfileString "Taxes", "TaxAll", CStr(TaxAll), IRP
 WritePrivateProfileString "Taxes", "TaxCount", CStr(TaxCount), IRP
 WritePrivateProfileString "Taxes", "CredMode", CStr(tax_taxing_traffic), IRP
-WritePrivateProfileString "Taxes", "TaxChanged", xStr(notify_tax_change), IRP
+WritePrivateProfileString "Taxes", "TaxChanged", def_bool_to_str(notify_tax_change), IRP
 
 
 WritePrivateProfileString "Configuration", "timeActive", CStr(timeActive), IRP

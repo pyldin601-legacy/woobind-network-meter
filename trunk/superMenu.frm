@@ -569,7 +569,7 @@ N = GetCursorPos(P)
 
 Me.MousePointer = 0
 
-superMenu.Check1.Value = Bol2Int(CheckAutorun)
+superMenu.Check1.Value = def_bool_to_int(CheckAutorun)
 
 Dim ChForm As RECT
 
