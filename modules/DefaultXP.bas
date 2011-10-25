@@ -463,19 +463,15 @@ End Function
 Function GetLongFromDataEx(inDay As Integer, inMonth As Integer, inYear As Integer) As Currency
 
 If inYear Mod 4 = 0 Then N = 1 Else N = 0
-If inMonth = 1 Then temp = inDay
-If inMonth = 2 Then temp = inDay + 31
-If inMonth = 3 Then temp = inDay + 31 + 28 + N
-If inMonth = 4 Then temp = inDay + 31 + 28 + 31 + N
-If inMonth = 5 Then temp = inDay + 31 + 28 + 31 + 30 + N
-If inMonth = 6 Then temp = inDay + 31 + 28 + 31 + 30 + 31 + N
-If inMonth = 7 Then temp = inDay + 31 + 28 + 31 + 30 + 31 + 30 + N
-If inMonth = 8 Then temp = inDay + 31 + 28 + 31 + 30 + 31 + 30 + 31 + N
-If inMonth = 9 Then temp = inDay + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + N
-If inMonth = 10 Then temp = inDay + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + N
-If inMonth = 11 Then temp = inDay + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + N
-If inMonth = 12 Then temp = inDay + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + N
-GetLongFromDataEx = inYear * (365 + N) + temp
+
+Dim date_start As Date
+Dim date_stop As Date
+
+date_start = DateSerial(inYear, 1, 1)
+date_stop = DateSerial(inYear, inDay, inMonth)
+date_delta = DateDiff("d", date_stop, date_start, vbMonday, vbFirstJan1)
+
+GetLongFromDataEx = inYear * (365 + N) + date_delta
 
 End Function
 Sub GetDateFromLong(InLong As Integer, inDay As Integer, inMonth As Integer, inYear As Integer)
@@ -590,9 +586,9 @@ End Function
 
 Public Function filter_interface_name(Record As String)
 Dim CfgLine As String, g As Integer
-g = InStr(Record, " - ")
+g = InStr(Record, "-")
 If g > 0 Then
- CfgLine = Trim(Mid(Record, 1, g))
+ CfgLine = Trim(Mid(Record, 1, g - 1))
 Else
  CfgLine = Record
 End If
