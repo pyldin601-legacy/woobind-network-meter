@@ -22,13 +22,10 @@ Attribute VB_Name = "Archimodule"
 '***************************************************************************
 
 Declare Function GetTickCount Lib "kernel32.dll" () As Long
-Public Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
+Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
+Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef Destination As Any, ByRef Source As Any, ByVal Length As Long)
 
-Const SPI_GETWORKAREA = 48
 Const None = ""
-
-'Global xIDXPosIn(32000) As Long
-'Global xIDXPosOut(32000) As Long
 
 Function def_cut_by_zero(Expression As String) As String
   N = InStr(Expression, Chr(0))
@@ -39,13 +36,14 @@ Function def_cut_by_zero(Expression As String) As String
   End If
 End Function
 
-Function ValW(Expression)
+' filter numbers
+Function def_num_value(Expression)
     Dim i As Integer, j As String
     For i = 1 To Len(Expression)
         If Asc(Mid(Expression, i, 1)) >= vbKey0 And Asc(Mid(Expression, i, 1)) <= vbKey9 Then _
                 j = j & Mid(Expression, i, 1)
     Next i
-    ValW = j
+    def_num_value = j
 End Function
 
 Function TopValue(inArray())
@@ -56,7 +54,7 @@ Function TopValue(inArray())
     TopValue = B
 End Function
 
-Function DateX(inSeconds As Long) As String
+Function def_seconds_to_left(inSeconds As Long) As String
     Dim xDy, xHr, xMn, xSc
     
     xDy = Fix(inSeconds / 86400)
@@ -64,8 +62,8 @@ Function DateX(inSeconds As Long) As String
     xMn = Fix(inSeconds / 60) Mod 60
     xSc = inSeconds Mod 60
     
-    DateX = IIf(xDy, Format(xDy, "0ä") & ". ", "") & IIf(xHr, Format(xHr, "0÷") & ". ", "") & IIf(xMn, Format(xMn, "0ì") & ". ", "") & IIf(xSc, Format(xSc, "0ñ") & ".", "")
-    If DateX = "" Then DateX = "0c."
+    def_seconds_to_left = IIf(xDy, Format(xDy, "0ä") & ". ", "") & IIf(xHr, Format(xHr, "0÷") & ". ", "") & IIf(xMn, Format(xMn, "0ì") & ". ", "") & IIf(xSc, Format(xSc, "0ñ") & ".", "")
+    If def_seconds_to_left = "" Then def_seconds_to_left = "0c."
         
 End Function
 
@@ -75,6 +73,7 @@ T = Trim(TrimEx(Format(xExpression, xFormat)))
 FormatEx = Replace(T, ",", ".")
 End Function
 
+' WTF???
 Function LeadingEx(inString As String, inZeros As Integer) As String
 
 Dim T As Integer
@@ -83,6 +82,7 @@ If T >= 0 Then LeadingEx = Space(T) & inString Else LeadingEx = inString
 
 End Function
 
+' OMG
 Function Par(Expression)
  If Expression Mod 2 = 0 Then Par = Expression Else Par = Expression - 1
 End Function
@@ -98,11 +98,8 @@ End Function
 Function RGBBright(inRGB As Long, inBright As Integer) As Long
 
 Dim iG As Byte, IB As Byte
-
 Dim IC(2) As Byte
-
 Call CopyMemory(IC(0), inRGB, 3)
-
 RGBBright = RGB(ColorLimit(IC(0) / 255 * inBright), ColorLimit(IC(1) / 255 * inBright), ColorLimit(IC(2) / 255 * inBright))
 
 End Function
