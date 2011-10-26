@@ -1185,7 +1185,7 @@ Begin VB.Form frmVelton
    End
    Begin VB.Image imgLevel 
       Height          =   135
-      Left            =   5745
+      Left            =   4745
       Picture         =   "frmMainWindow.frx":E2B1C
       ToolTipText     =   "Network Ping Level"
       Top             =   660
