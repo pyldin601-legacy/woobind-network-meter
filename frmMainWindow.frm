@@ -269,10 +269,10 @@ Begin VB.Form frmVelton
    Begin VB.PictureBox Picture1 
       AutoRedraw      =   -1  'True
       BorderStyle     =   0  'None
-      Height          =   235
+      Height          =   220
       Left            =   6600
       Picture         =   "frmMainWindow.frx":C31E6
-      ScaleHeight     =   240
+      ScaleHeight     =   225
       ScaleWidth      =   975
       TabIndex        =   27
       Top             =   620
@@ -282,10 +282,10 @@ Begin VB.Form frmVelton
       AutoRedraw      =   -1  'True
       BackColor       =   &H00161515&
       BorderStyle     =   0  'None
-      Height          =   235
+      Height          =   220
       Left            =   7700
-      Picture         =   "frmMainWindow.frx":C3FB6
-      ScaleHeight     =   240
+      Picture         =   "frmMainWindow.frx":C3F0E
+      ScaleHeight     =   225
       ScaleWidth      =   975
       TabIndex        =   26
       Top             =   620
@@ -624,14 +624,14 @@ Begin VB.Form frmVelton
       Begin VB.Image Image2 
          Height          =   240
          Left            =   4020
-         Picture         =   "frmMainWindow.frx":C4D86
+         Picture         =   "frmMainWindow.frx":C4C36
          Top             =   1680
          Width           =   240
       End
       Begin VB.Image Image1 
          Height          =   240
          Left            =   1980
-         Picture         =   "frmMainWindow.frx":C5110
+         Picture         =   "frmMainWindow.frx":C4FC0
          Top             =   1680
          Width           =   240
       End
@@ -1066,9 +1066,9 @@ Begin VB.Form frmVelton
       Height          =   435
       Index           =   2
       Left            =   4260
-      MouseIcon       =   "frmMainWindow.frx":C549A
+      MouseIcon       =   "frmMainWindow.frx":C534A
       MousePointer    =   99  'Custom
-      Picture         =   "frmMainWindow.frx":C57A4
+      Picture         =   "frmMainWindow.frx":C5654
       ScaleHeight     =   435
       ScaleWidth      =   1470
       TabIndex        =   57
@@ -1081,9 +1081,9 @@ Begin VB.Form frmVelton
       Height          =   435
       Index           =   8
       Left            =   5730
-      MouseIcon       =   "frmMainWindow.frx":C7970
+      MouseIcon       =   "frmMainWindow.frx":C7820
       MousePointer    =   99  'Custom
-      Picture         =   "frmMainWindow.frx":C7C7A
+      Picture         =   "frmMainWindow.frx":C7B2A
       ScaleHeight     =   435
       ScaleWidth      =   1470
       TabIndex        =   60
@@ -1096,9 +1096,9 @@ Begin VB.Form frmVelton
       Height          =   435
       Index           =   6
       Left            =   7200
-      MouseIcon       =   "frmMainWindow.frx":C9E46
+      MouseIcon       =   "frmMainWindow.frx":C9CF6
       MousePointer    =   99  'Custom
-      Picture         =   "frmMainWindow.frx":CA150
+      Picture         =   "frmMainWindow.frx":CA000
       ScaleHeight     =   435
       ScaleWidth      =   1470
       TabIndex        =   59
@@ -1109,7 +1109,7 @@ Begin VB.Form frmVelton
       Enabled         =   0   'False
       Height          =   435
       Left            =   8670
-      Picture         =   "frmMainWindow.frx":CC31C
+      Picture         =   "frmMainWindow.frx":CC1CC
       Top             =   5160
       Width           =   210
    End
@@ -1117,7 +1117,7 @@ Begin VB.Form frmVelton
       Enabled         =   0   'False
       Height          =   435
       Left            =   4045
-      Picture         =   "frmMainWindow.frx":CC85C
+      Picture         =   "frmMainWindow.frx":CC70C
       Top             =   5160
       Width           =   210
    End
@@ -1134,51 +1134,51 @@ Begin VB.Form frmVelton
       BeginProperty Images {0713E8C2-850A-101B-AFC0-4210102A8DA7} 
          NumListImages   =   12
          BeginProperty ListImage1 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":CCD9C
+            Picture         =   "frmMainWindow.frx":CCC4C
             Key             =   ""
          EndProperty
          BeginProperty ListImage2 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":CE602
+            Picture         =   "frmMainWindow.frx":CE4B2
             Key             =   ""
          EndProperty
          BeginProperty ListImage3 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":CFE68
+            Picture         =   "frmMainWindow.frx":CFD18
             Key             =   ""
          EndProperty
          BeginProperty ListImage4 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":D2042
+            Picture         =   "frmMainWindow.frx":D1EF2
             Key             =   ""
          EndProperty
          BeginProperty ListImage5 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":D421C
+            Picture         =   "frmMainWindow.frx":D40CC
             Key             =   ""
          EndProperty
          BeginProperty ListImage6 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":D5A82
+            Picture         =   "frmMainWindow.frx":D5932
             Key             =   ""
          EndProperty
          BeginProperty ListImage7 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":D72E8
+            Picture         =   "frmMainWindow.frx":D7198
             Key             =   ""
          EndProperty
          BeginProperty ListImage8 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":D94C2
+            Picture         =   "frmMainWindow.frx":D9372
             Key             =   ""
          EndProperty
          BeginProperty ListImage9 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":DB69C
+            Picture         =   "frmMainWindow.frx":DB54C
             Key             =   ""
          EndProperty
          BeginProperty ListImage10 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":DD876
+            Picture         =   "frmMainWindow.frx":DD726
             Key             =   ""
          EndProperty
          BeginProperty ListImage11 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":DFA50
+            Picture         =   "frmMainWindow.frx":DF900
             Key             =   ""
          EndProperty
          BeginProperty ListImage12 {0713E8C3-850A-101B-AFC0-4210102A8DA7} 
-            Picture         =   "frmMainWindow.frx":E12B6
+            Picture         =   "frmMainWindow.frx":E1166
             Key             =   ""
          EndProperty
       EndProperty
@@ -1186,7 +1186,7 @@ Begin VB.Form frmVelton
    Begin VB.Image imgLevel 
       Height          =   135
       Left            =   4745
-      Picture         =   "frmMainWindow.frx":E2B1C
+      Picture         =   "frmMainWindow.frx":E29CC
       ToolTipText     =   "Network Ping Level"
       Top             =   660
       Width           =   375

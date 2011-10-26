@@ -84,18 +84,18 @@ Begin VB.Form frmOK
       BackColor       =   &H00161515&
       BorderStyle     =   0  'None
       Height          =   255
-      Left            =   4080
-      Picture         =   "frmtray.frx":33514
+      Left            =   4050
+      Picture         =   "frmtray.frx":3346C
       ScaleHeight     =   255
       ScaleWidth      =   975
       TabIndex        =   14
-      Top             =   495
+      Top             =   525
       Width           =   975
    End
    Begin VB.PictureBox picON 
       Height          =   195
       Left            =   2700
-      Picture         =   "frmtray.frx":342E4
+      Picture         =   "frmtray.frx":34194
       ScaleHeight     =   135
       ScaleWidth      =   435
       TabIndex        =   13
@@ -106,7 +106,7 @@ Begin VB.Form frmOK
    Begin VB.PictureBox picOFF 
       Height          =   195
       Left            =   2700
-      Picture         =   "frmtray.frx":350B4
+      Picture         =   "frmtray.frx":34EBC
       ScaleHeight     =   135
       ScaleWidth      =   435
       TabIndex        =   12
