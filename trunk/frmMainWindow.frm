@@ -273,10 +273,10 @@ Begin VB.Form frmVelton
       Left            =   6600
       Picture         =   "frmMainWindow.frx":C31E6
       ScaleHeight     =   225
-      ScaleWidth      =   975
+      ScaleWidth      =   1035
       TabIndex        =   27
       Top             =   620
-      Width           =   975
+      Width           =   1035
    End
    Begin VB.PictureBox picA 
       AutoRedraw      =   -1  'True
