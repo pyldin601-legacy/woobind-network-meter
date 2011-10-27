@@ -392,4 +392,15 @@ Sub Fin()
 End Sub
 
 
+Function GetTaskbarPos() As RECT
+
+    Dim i As Long
+    
+    i = FindWindow("Shell_TrayWnd", vbNullString)
+    Call GetWindowRect(i, GetTaskbarPos)
+   
+
+End Function
+
+
 ' THE END

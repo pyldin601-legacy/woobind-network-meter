@@ -315,15 +315,14 @@ Function GetDaysInMonth(inMonth As Integer) As Integer
   End Select
 End Function
 
-Sub FillIn(fform As Form)
-SetLayeredWindowAttributes fform.hWnd, 0, 0, LWA_ALPHA
+Sub FillIn(ByRef fform As Form)
+SetFormAlphaXP fform, 255
 
 fform.Visible = True
-For y = 0 To 200 Step 2
+Dim y As Long
+For y = 200 To 0 Step 1
   DoEvents
-  NormalWindowStyle = GetWindowLong(fform.hWnd, GWL_EXSTYLE)
-  SetWindowLong fform.hWnd, GWL_EXSTYLE, NormalWindowStyle Or WS_EX_LAYERED
-  SetLayeredWindowAttributes fform.hWnd, 0, y, LWA_ALPHA
+  SetFormAlphaXP fform, y
 Next y
 
 End Sub
