@@ -32,6 +32,20 @@ Begin VB.Form frmTrayTip
       Left            =   3060
       Top             =   0
    End
+   Begin VB.PictureBox skinbuff 
+      AutoRedraw      =   -1  'True
+      AutoSize        =   -1  'True
+      BorderStyle     =   0  'None
+      Height          =   1185
+      Left            =   0
+      Picture         =   "frmTrayTip.frx":0000
+      ScaleHeight     =   1185
+      ScaleWidth      =   285
+      TabIndex        =   11
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   285
+   End
    Begin VB.Label lSpDn 
       BackStyle       =   0  'Transparent
       Caption         =   "123.00  байт/c"
@@ -73,14 +87,14 @@ Begin VB.Form frmTrayTip
    Begin VB.Image Image1 
       Height          =   240
       Left            =   120
-      Picture         =   "frmTrayTip.frx":0000
+      Picture         =   "frmTrayTip.frx":0264
       Top             =   1620
       Width           =   240
    End
    Begin VB.Image Image2 
       Height          =   240
       Left            =   2040
-      Picture         =   "frmTrayTip.frx":038A
+      Picture         =   "frmTrayTip.frx":05EE
       Top             =   1620
       Width           =   240
    End
@@ -217,12 +231,14 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim OldX, OldY
+Dim Trys  As Integer
 
 
 Sub ShowTip(strTip As String, x, y)
 
     Dim tmpReg As RECT
     Dim tx As POINTAPI
+    Dim TP As RECT
     Call GetCursorPos(tx)
     
     OldX = tx.x
@@ -232,36 +248,39 @@ Sub ShowTip(strTip As String, x, y)
     tmpReg = GetWorkArea
     tmrE.Enabled = True
     
-    Me.Cls
+    TP = GetTaskbarPos
     
-    Rescan
-
+    If TP.Top > tmpReg.Bottom / 2 Then
+        Me.Move TP.Right * Screen.TwipsPerPixelX - Me.Width - 30, TP.Top * tppY - Me.Height - 30
+    Else
+        Me.Move TP.Right * Screen.TwipsPerPixelX - Me.Width - 30, TP.Bottom * tppY + 30
+    End If
     
-    Me.Move tmpReg.Right * Screen.TwipsPerPixelX - Me.Width - 30, tmpReg.Bottom * tppY - Me.Height - 30
-    
-    Me.Line (0, 0)-(Me.Width / Screen.TwipsPerPixelX - 1, Me.Height / Screen.TwipsPerPixelY - 1), vbBlack, B
-
-    OnTopForm Me, True
-    DoEvents
+    Trys = 5
     
 End Sub
 
 
 
+Sub tip_load_skin()
+    
+    Call StretchBlt(Me.hdc, 0, 0, 6, 6, skinbuff.hdc, 0, 0, 6, 6, vbSrcCopy)
+    Call StretchBlt(Me.hdc, Me.ScaleWidth - 6, Me.ScaleHeight - 6, 6, 6, skinbuff.hdc, skinbuff.Width - 6, skinbuff.Height - 6, 6, 6, vbSrcCopy)
+    Call StretchBlt(Me.hdc, 0, Me.ScaleHeight - 6, 6, 6, skinbuff.hdc, 0, skinbuff.Height - 6, 6, 6, vbSrcCopy)
+    Call StretchBlt(Me.hdc, Me.ScaleWidth - 6, 0, 6, 6, skinbuff.hdc, skinbuff.Width - 6, 0, 6, 6, vbSrcCopy)
+    Call StretchBlt(Me.hdc, 6, 0, Me.ScaleWidth - 12, 6, skinbuff.hdc, 6, 0, skinbuff.Width - 12, 6, vbSrcCopy)
+    Call StretchBlt(Me.hdc, 0, 6, 6, Me.ScaleHeight - 12, skinbuff.hdc, 0, 6, 6, skinbuff.Height - 12, vbSrcCopy)
+    Call StretchBlt(Me.hdc, Me.ScaleWidth - 6, 6, 6, Me.ScaleHeight - 12, skinbuff.hdc, skinbuff.Width - 6, 6, 6, skinbuff.Height - 12, vbSrcCopy)
+    Call StretchBlt(Me.hdc, 6, Me.ScaleHeight - 6, Me.ScaleWidth - 12, 6, skinbuff.hdc, 6, skinbuff.Height - 6, skinbuff.Width - 12, 6, vbSrcCopy)
+    Call StretchBlt(Me.hdc, 6, 6, Me.ScaleWidth - 12, Me.ScaleHeight - 12, skinbuff.hdc, 6, 6, skinbuff.Width - 12, skinbuff.Height - 12, vbSrcCopy)
+    Me.Picture = Me.Image
 
+End Sub
 
 Private Sub Form_Load()
 
-    Me.BackColor = GetSysColor(&H18)
-    
-    Dim N
-    For N = 0 To 150
-        Me.PSet (7 + N, 22), RGBBright(Me.BackColor, N + 100)
-        Me.PSet (7 + N, 90), RGBBright(Me.BackColor, N + 100)
-    Next N
-    
-    Me.Picture = Me.Image
-    
+    SetFormTColorXP Me, vbMagenta, 255
+    Call tip_load_skin
     
 End Sub
 
@@ -283,14 +302,19 @@ End Sub
 
 Private Sub tmrE_Timer()
     
-    Dim tx As POINTAPI
+   Dim tx As POINTAPI
     Call GetCursorPos(tx)
     
     If tx.x <> OldX Or tx.y <> OldY Then
         tmrE.Enabled = False
         Me.Hide
     Else
-        Rescan
+        If Trys > 0 Then Trys = Trys - 1
+        If (Trys = 0 And Me.Visible = False And Not superMenu.Visible) Then
+            'FillIn Me
+            Rescan
+            OnTopForm Me, True
+        End If
     End If
     
 End Sub
