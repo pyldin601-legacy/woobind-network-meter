@@ -62,7 +62,10 @@ Function def_seconds_to_left(inSeconds As Long) As String
     xMn = Fix(inSeconds / 60) Mod 60
     xSc = inSeconds Mod 60
     
-    def_seconds_to_left = IIf(xDy, Format(xDy, "0д") & ". ", "") & IIf(xHr, Format(xHr, "0ч") & ". ", "") & IIf(xMn, Format(xMn, "0м") & ". ", "") & IIf(xSc, Format(xSc, "0с") & ".", "")
+    def_seconds_to_left = IIf(xDy, Format(xDy, "0д") & ". ", "") & _
+                          IIf(xHr, Format(xHr, "0ч") & ". ", "") & _
+                          IIf(xMn, Format(xMn, "0м") & ". ", "") & _
+                          IIf(xSc, Format(xSc, "0с") & ".", "")
     If def_seconds_to_left = "" Then def_seconds_to_left = "0c."
         
 End Function
@@ -73,16 +76,14 @@ T = Trim(TrimEx(Format(xExpression, xFormat)))
 FormatEx = Replace(T, ",", ".")
 End Function
 
-' WTF???
-Function LeadingEx(inString As String, inZeros As Integer) As String
+Function def_print_right(inString As String, inZeros As Integer) As String
 
 Dim T As Integer
 T = inZeros - Len(inString)
-If T >= 0 Then LeadingEx = Space(T) & inString Else LeadingEx = inString
+If T >= 0 Then def_print_right = Space(T) & inString Else def_print_right = inString
 
 End Function
 
-' OMG
 Function Par(Expression)
  If Expression Mod 2 = 0 Then Par = Expression Else Par = Expression - 1
 End Function
@@ -120,8 +121,8 @@ Dim X1, Y1, X2, Y2
 
 If x = -1 And y = -1 Then _
   GetCursorPos MouseCoords: _
-  x = 15 * MouseCoords.x: _
-  y = 15 * MouseCoords.y
+  x = tppX() * MouseCoords.x: _
+  y = tppY() * MouseCoords.y
   
   
 X1 = inForm.Left + inControl.Left
@@ -270,39 +271,48 @@ End Function
 
 Function BeginsWith(inString As String, inInclude As String) As Boolean
 
-If Mid(inString, 1, Len(inInclude)) = inInclude Then BeginsWith = True Else BeginsWith = False
+  If Mid(inString, 1, Len(inInclude)) = inInclude Then
+    BeginsWith = True
+  Else
+    BeginsWith = False
+  End If
 
 End Function
 
 Function NotInteger(inValue As Variant) As Boolean
-If Fix(inValue) = inValue Then NotInteger = True Else NotInteger = False
+
+  If Fix(inValue) = inValue Then
+    NotInteger = True
+  Else
+    NotInteger = False
+  End If
+
 End Function
 
 Sub kill_sign(Expression As Variant)
- If Expression < 0 Then Expression = 0
+  
+  If Expression < 0 Then Expression = 0
+
 End Sub
+
 Function ModulateEx(Expression As Variant) As Variant
- If Expression < 0 Then ModulateEx = 0 Else ModulateEx = Expression
+  
+  If Expression < 0 Then ModulateEx = 0 Else ModulateEx = Expression
+
 End Function
+
 Sub Summ(inValue, Optional inAdd = 1)
- inValue = inValue + inAdd
+ 
+  inValue = inValue + inAdd
+
 End Sub
 
 Function GetDaysInMonth(inMonth As Integer) As Integer
- Select Case inMonth
- Case 1: GetDaysInMonth = 31
- Case 2: GetDaysInMonth = 28.25
- Case 3: GetDaysInMonth = 31
- Case 4: GetDaysInMonth = 30
- Case 5: GetDaysInMonth = 31
- Case 6: GetDaysInMonth = 30
- Case 7: GetDaysInMonth = 31
- Case 8: GetDaysInMonth = 30
- Case 9: GetDaysInMonth = 30
- Case 10: GetDaysInMonth = 31
- Case 11: GetDaysInMonth = 30
- Case 12: GetDaysInMonth = 31
- End Select
+  Select Case inMonth
+  Case 1, 3, 5, 7, 10, 12: GetDaysInMonth = 31
+  Case 2: GetDaysInMonth = 28.25
+  Case 4, 6, 8, 9, 11: GetDaysInMonth = 30
+  End Select
 End Function
 
 Sub FillIn(fform As Form)
@@ -318,9 +328,9 @@ Next y
 
 End Sub
 
-Function CWF(logic As Boolean, A As Variant, B As Variant) As Variant
-If logic Then CWF = A Else CWF = B
-End Function
+'Function CWF(logic As Boolean, A As Variant, B As Variant) As Variant
+'  If logic Then CWF = A Else CWF = B
+'End Function
 
 Sub FillOut(fform As Form)
 
@@ -330,22 +340,21 @@ For y = 200 To 0 Step -2
   SetWindowLong fform.hWnd, GWL_EXSTYLE, NormalWindowStyle Or WS_EX_LAYERED
   SetLayeredWindowAttributes fform.hWnd, 0, y, LWA_ALPHA
 Next y
+
 fform.Visible = False
 
 End Sub
-
-
 
 Function Trim32(inString As String)
 
 inString = Trim(inString)
 
 For x = Len(inString) To 1 Step -1
- If Asc(Mid(inString, x, 1)) > 32 Then inString = Mid(inString, 1, x): Exit For
+  If Asc(Mid(inString, x, 1)) > 32 Then inString = Mid(inString, 1, x): Exit For
 Next
 
 For x = 1 To Len(inString) Step 1
- If Asc(Mid(inString, x, 1)) < 32 Then Trim32 = Mid(inString, 1, x - 1): Exit Function
+  If Asc(Mid(inString, x, 1)) < 32 Then Trim32 = Mid(inString, 1, x - 1): Exit Function
 Next
 
 Trim32 = inString
@@ -355,7 +364,6 @@ End Function
 Function Scaler(SA As Long, sB As Long, sStep As Long, sSteps As Long) As Long
 
 Dim sC As Long
-
 sC = sB - SA
 
 Scaler = sC + (SA / sSteps * sStep)
@@ -363,40 +371,44 @@ Scaler = sC + (SA / sSteps * sStep)
 End Function
 
 Function dsRes(Expression, StepSize)
-    dsRes = IIf(Fix(Expression / StepSize) = Expression / StepSize, Expression, StepSize + Fix(Expression / StepSize) * StepSize)
+  dsRes = IIf(Fix(Expression / StepSize) = Expression / StepSize, Expression, StepSize + Fix(Expression / StepSize) * StepSize)
 End Function
 
-Sub «адержка(ћиллисекунд As Long)
+Sub usleep(ms As Long)
 
-Dim ¬рем«нач As Long
+Dim tme As Long
 
-¬рем«нач = GetTickCount
+tme = GetTickCount
 
-Do: DoEvents: Loop While Not GetTickCount - ¬рем«нач > ћиллисекунд
-
-End Sub
-Sub Dream(ms As Long)
-
-Dim vz As Long
-
-vz = GetTickCount
-
-Do: DoEvents: Loop While Not GetTickCount - vz > ms
+Do: DoEvents: Loop While Not GetTickCount - tme > ms
 
 End Sub
+
+'Sub Dream(ms As Long)
+
+'Dim vz As Long
+
+'vz = GetTickCount
+
+'Do: DoEvents: Loop While Not GetTickCount - vz > ms
+
+'End Sub
+
 Function MMod(mLong)
   If mLong < 0 Then MMod = -mLong Else MMod = mLong
 End Function
 
 Function MaxVal(inVal1, inVal2)
-If inVal1 > inVal2 Then MaxVal = inVal1 Else MaxVal = inVal2
-End Function
 
-Function MaxValue(ByRef inVal1 As Long, ByRef inVal2 As Long) As Long
-
-If inVal1 > inVal2 Then MaxValue = inVal1 Else MaxValue = inVal2
+  If inVal1 > inVal2 Then MaxVal = inVal1 Else MaxVal = inVal2
 
 End Function
+
+'Function MaxValue(ByRef inVal1 As Long, ByRef inVal2 As Long) As Long
+
+'If inVal1 > inVal2 Then MaxValue = inVal1 Else MaxValue = inVal2
+
+'End Function
 
 Function CountChars(inChar As String, inString As String) As Integer
 k = 0
@@ -406,25 +418,23 @@ Next
 CountChars = k
 End Function
 
-Function EnPass(inText) As String
-Dim inTmp, x
+'Function EnPass(inText) As String
+'Dim inTmp, x
 
-inTmp = String(Len(inText), 32)
+'inTmp = String(Len(inText), 32)
 
-For x = 1 To Len(inText)
- Mid(inTmp, x, 1) = Chr(255 - Asc(Mid(inText, x, 1)))
-Next
+'For x = 1 To Len(inText)
+' Mid(inTmp, x, 1) = Chr(255 - Asc(Mid(inText, x, 1)))
+'Next
 
-EnPass = inTmp
+'EnPass = inTmp
 
-End Function
+'End Function
 
 
 Function GetLongFromData(inDay As Integer, inMonth As Integer, inYear As Integer) As Currency
 
-
-    GetLongFromData = Val(Format(ReturnDate(inDay, inMonth, inYear), "y", vbMonday, vbFirstJan1))
-
+  GetLongFromData = Val(Format(ReturnDate(inDay, inMonth, inYear), "y", vbMonday, vbFirstJan1))
 
 End Function
 
@@ -460,26 +470,26 @@ End If
 End Function
 
 Function GetMinutesFromTime(vTime As String)
-Dim MinS, Hors
-Hors = Val(Mid$(vTime, 1, 2))
-MinS = Val(Mid(vTime, 4, 2))
-GetMinutesFromTime = (Hors * 60) + MinS
+  Dim MinS, Hors
+  Hors = Val(Mid$(vTime, 1, 2))
+  MinS = Val(Mid(vTime, 4, 2))
+  GetMinutesFromTime = (Hors * 60) + MinS
 End Function
 
 Public Function GetVersion() As String
-GetVersion = Format$(App.Major, "0") + "." + Format$(App.Minor, "0") + "." + Format$(App.Revision, "000")
+  GetVersion = Format$(App.Major, "0") + "." + Format$(App.Minor, "0") + "." + Format$(App.Revision, "000")
 End Function
 
 Public Function Get2Version() As String
-Get2Version = Format$(App.Major, "0") + "." + Format$(App.Minor, "0")
+  Get2Version = Format$(App.Major, "0") + "." + Format$(App.Minor, "0")
 End Function
 
-Function PathHead$(FileName As String)
+Function def_get_path(FileName As String) As String
 Dim Names As Integer
 For Names = Len(FileName) To 1 Step -1
  If Mid$(FileName, Names, 1) = "\" Then
-  PathHead$ = Mid$(FileName, 1, (Names) - 1)
-  If PathHead$ = "$APPDIR$" Then PathHead$ = App.Path
+  def_get_path = Mid$(FileName, 1, (Names) - 1)
+  If def_get_path = "$APPDIR$" Then def_get_path = App.Path
   Exit For
  End If
 Next
@@ -503,10 +513,10 @@ Function FileExists(Path$) As Boolean
 
 End Function
 
-Public Function FileHead$(FileName As String)
+Public Function def_get_file(FileName As String) As String
 Dim Names As Integer
 For Names = Len(FileName) To 1 Step -1
-If Mid$(FileName, Names, 1) = "\" Then FileHead$ = Right$(FileName, Len(FileName) - (Names)): Exit Function
+If Mid(FileName, Names, 1) = "\" Then def_get_file = Right(FileName, Len(FileName) - Names): Exit Function
 Next
 End Function
 
