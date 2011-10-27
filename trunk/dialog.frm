@@ -3629,7 +3629,7 @@ Sub AddProcess(pPath As String)
     Dim li As ComctlLib.ListItem
     
         Set li = lstProcesses.ListItems.Add()
-        li.Text = Mid(FileHead(pPath), 1, Len(FileHead(pPath)) - 4)
+        li.Text = Mid(def_get_file(pPath), 1, Len(def_get_file(pPath)) - 4)
         li.SubItems(1) = pPath
         li.Tag = 0
     

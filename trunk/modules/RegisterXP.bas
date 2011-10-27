@@ -54,22 +54,26 @@ Declare Function RegSetValueExString Lib "advapi32.dll" Alias "RegSetValueExA" (
 Declare Function RegSetValueExLong Lib "advapi32.dll" Alias "RegSetValueExA" (ByVal hKey As Long, ByVal lpValueName As String, ByVal Reserved As Long, ByVal dwType As Long, lpValue As Long, ByVal cbData As Long) As Long
 Declare Function RegDeleteKey& Lib "advapi32.dll" Alias "RegDeleteKeyA" (ByVal hKey As Long, ByVal lpSubKey As String)
 Declare Function RegDeleteValue& Lib "advapi32.dll" Alias "RegDeleteValueA" (ByVal hKey As Long, ByVal lpValueName As String) 'Создание нового ключа
+
 Public Function CreateNewKey(lPredefinedKey As Long, sNewKeyName As String)
+
 Dim hNewKey As Long
 Dim lRetVal As Long
+
 lRetVal = RegCreateKeyEx(lPredefinedKey, sNewKeyName, 0&, vbNullString, REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, 0&, hNewKey, lRetVal)
 RegCloseKey (hNewKey)
+
 End Function
 
 Public Function SetKeyValue(lPredefinedKey As Long, sKeyName As String, sValueName As String, vValueSetting As Variant, lValueType As Long)
+
 Dim lRetVal As Long
 Dim hKey As Long
 
-
 lRetVal = RegOpenKeyEx(lPredefinedKey, sKeyName, 0, KEY_ALL_ACCESS, hKey)
 lRetVal = SetValueEx(hKey, sValueName, lValueType, vValueSetting)
-
 RegCloseKey (hKey)
+
 End Function
 
 Public Function SetValueEx(ByVal hKey As Long, sValueName As String, lType As Long, vValue As Variant) As Long
@@ -79,11 +83,13 @@ Dim sValue As String
 
 Select Case lType
 Case REG_SZ
-sValue = vValue
-SetValueEx = RegSetValueExString(hKey, sValueName, 0&, lType, sValue, Len(sValue))
+  sValue = vValue
+  SetValueEx = RegSetValueExString(hKey, sValueName, 0&, lType, sValue, Len(sValue))
+
 Case REG_DWORD
-lValue = vValue
-SetValueEx = RegSetValueExLong(hKey, sValueName, 0&, lType, lValue, 4)
+  lValue = vValue
+  SetValueEx = RegSetValueExLong(hKey, sValueName, 0&, lType, lValue, 4)
+
 End Select
 
 End Function
@@ -93,6 +99,7 @@ Public Function QueryValue(lPredefinedKey As Long, sKeyName As String, sValueNam
 Dim lRetVal As Long
 Dim hKey As Long
 Dim vValue As Variant
+
 lRetVal = RegOpenKeyEx(lPredefinedKey, sKeyName, 0, KEY_ALL_ACCESS, hKey)
 lRetVal = QueryValueEx(hKey, sValueName, vValue)
 QueryValue = vValue
@@ -111,38 +118,51 @@ Dim sValue As String
 On Error GoTo QueryValueExError
 
 lrc = RegQueryValueExNULL(lhKey, szValueName, 0&, lType, 0&, cch)
+
 If lrc <> ERROR_NONE Then MsgBox "Данных (ключа) не существует!", vbExclamation, Form1.Caption
+
 Select Case lType
 Case REG_SZ:
-sValue = String(cch, 0)
-lrc = RegQueryValueExString(lhKey, szValueName, 0&, lType, sValue, cch)
-If lrc = ERROR_NONE Then
-vValue = Left$(sValue, cch)
-Else
-vValue = Empty
-End If
+  sValue = String(cch, 0)
+  lrc = RegQueryValueExString(lhKey, szValueName, 0&, lType, sValue, cch)
+  If lrc = ERROR_NONE Then
+    vValue = Left$(sValue, cch)
+  Else
+    vValue = Empty
+  End If
+
 Case REG_DWORD:
-lrc = RegQueryValueExLong(lhKey, szValueName, 0&, lType, lValue, cch)
-If lrc = ERROR_NONE Then vValue = lValue
+  lrc = RegQueryValueExLong(lhKey, szValueName, 0&, lType, lValue, cch)
+  If lrc = ERROR_NONE Then vValue = lValue
+
 Case Else
-lrc = -1
+  lrc = -1
+
 End Select
+
 QueryValueExExit:
-QueryValueEx = lrc
-Exit Function
+  QueryValueEx = lrc
+  Exit Function
+
 QueryValueExError:
-Resume QueryValueExExit
+  Resume QueryValueExExit
+  
 End Function
 
 Public Function DeleteValue(lPredefinedKey As Long, sKeyName As String, sValueName As String)
+
 Dim lRetVal As Long
 Dim hKey As Long
+
 lRetVal = RegOpenKeyEx(lPredefinedKey, sKeyName, 0, KEY_ALL_ACCESS, hKey)
 lRetVal = RegDeleteValue(hKey, sValueName)
 RegCloseKey (hKey)
+
 End Function
 
 Public Function DeleteKey(lPredefinedKey As Long, sKeyName As String)
+
 Dim lRetVal As Long
 lRetVal = RegDeleteKey(lPredefinedKey, sKeyName)
+
 End Function

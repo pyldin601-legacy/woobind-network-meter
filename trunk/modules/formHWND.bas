@@ -36,9 +36,9 @@ Public Declare Function Putfocus Lib "user32" Alias "SetFocus" (ByVal hWnd As Lo
 Public Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 
 
-Public Sub OnTopForm(wForm As Form, Вариант As Boolean)
+Public Sub OnTopForm(wForm As Form, value As Boolean)
 
-    Select Case Вариант
+    Select Case value
 
     Case True
         SetWindowPos wForm.hWnd, -1, wForm.Left / 15, _
@@ -54,9 +54,9 @@ Public Sub OnTopForm(wForm As Form, Вариант As Boolean)
 
 End Sub
 
-Public Sub GoodTopForm(wForm As Form, Вариант As Boolean)
+Public Sub GoodTopForm(wForm As Form, value As Boolean)
 
-    Select Case Вариант
+    Select Case value
 
     Case True
         SetWindowPos wForm.hWnd, 0, wForm.Left / 15, _
@@ -83,9 +83,9 @@ Public Sub RaiseForm(wForm As Form)
 End Sub
 
 
-Public Sub OnBottomForm(wForm As Form, Вариант As Boolean)
+Public Sub OnBottomForm(wForm As Form, value As Boolean)
 
-    Select Case Вариант
+    Select Case value
 
     Case True
         SetWindowPos wForm.hWnd, 1, wForm.Left / 15, _

@@ -771,7 +771,7 @@ For N = 0 To -Me.Height + 25 Step -100
     Let Me.Top = N
     Let y = 250 / (-Me.Height + 25) * N
     Call SetLayeredWindowAttributes(Me.hWnd, 0, 255 - y, LWA_ALPHA)
-    Задержка 10
+    usleep 10
 
 Next N
 

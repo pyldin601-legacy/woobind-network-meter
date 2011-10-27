@@ -55,7 +55,6 @@ Function localize_do(inMASK As String, Optional inDefault As String = "???") As 
 
 End Function
 
-
 Function GetLanguage2(inMASK As String, Optional inDefault As String = "???") As String
 
     Dim index As Integer
