@@ -47,7 +47,6 @@ Public Const WM_QUIT = &H12
 Public Const WM_SYSCOMMAND = &H112
 Public Const SC_CLOSE = &HF060&
 
-
 Const TH32CS_INHERIT = &H80000000
 Const MAX_PATH As Integer = 260
 
@@ -56,8 +55,6 @@ Public Type lRecord
     lR_Path As String * 256
     lR_PID As Double
 End Type
-
-
 
 Private Type PROCESSENTRY32
     dwSize As Long
@@ -80,7 +77,6 @@ End Type
 Public lRecord() As lRecord
 Dim EnumP() As EnumP
 Dim lR As lRecord
-
 
 Function IsProcessOur(PID As Double, pName As String) As Boolean
 
@@ -110,8 +106,6 @@ Function IsProcessOur(PID As Double, pName As String) As Boolean
     CloseHandle hSnapShot
     
 End Function
-
-
 
 Function AreProcessExists(pName As String) As Double
 
@@ -226,7 +220,6 @@ Public Sub LaunchlRecords()
     Call SavelRecords
 
 End Sub
-
 
 Public Sub TerminatelRecords()
 

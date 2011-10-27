@@ -75,7 +75,6 @@ Sub CheckUpdate(isManual As Boolean)
         AppDescr = Trim(Mid(tmpStr, 152))
    
         If App.Revision < AppBuild Then
-            If App.Revision + 1 < AppBuild Then FileUpdate = Replace(FileUpdate, "update", "install")
             PoP.ShowPopup "Woobind Network Meter", "Обнаружена новая версия программы!\n" & AppDescr & "\n___________\nЩелкните здесь левой кнопкой мыши чтобы начать загрузку\nили правой кнопкой чтобы закрыть это окно.", 0, TipSound, ShowTop, AddressOf UpdateProc
         Else
             If isManual Then PoP.ShowPopup "Woobind Network Meter", "У Вас самая новая версия программы.\nОбновление не требуется.", 1, TipSound, ShowTop
@@ -88,7 +87,8 @@ Sub CheckUpdate(isManual As Boolean)
  
 End Sub
 
-
 Sub UpdateProc()
+    
     RunWEB FileUpdate
+
 End Sub

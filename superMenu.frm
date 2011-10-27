@@ -493,7 +493,7 @@ SetLayeredWindowAttributes Me.hWnd, 0, N, LWA_ALPHA
 Me.Move OldWX, OldWY - (250 - N)
 
 
-Задержка 20
+usleep 20
 ' FlyAway = FlyAway * 2
 If Hiding = False Then Exit Sub
 Next
@@ -519,7 +519,7 @@ For N = 250 To 0 Step -20
 SetLayeredWindowAttributes Me.hWnd, 0, N, LWA_ALPHA
 
 
-Задержка 20
+usleep 20
 ' FlyAway = FlyAway * 2
 If Hiding = False Then Exit Sub
 Next

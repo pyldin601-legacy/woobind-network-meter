@@ -25,7 +25,7 @@ Declare Function GetTickCount Lib "kernel32.dll" () As Long
 Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
 Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef Destination As Any, ByRef Source As Any, ByVal Length As Long)
 
-Const None = ""
+'Const None = ""
 
 Function def_cut_by_zero(Expression As String) As String
   N = InStr(Expression, Chr(0))
@@ -328,10 +328,6 @@ Next y
 
 End Sub
 
-'Function CWF(logic As Boolean, A As Variant, B As Variant) As Variant
-'  If logic Then CWF = A Else CWF = B
-'End Function
-
 Sub FillOut(fform As Form)
 
 For y = 200 To 0 Step -2
@@ -384,16 +380,6 @@ Do: DoEvents: Loop While Not GetTickCount - tme > ms
 
 End Sub
 
-'Sub Dream(ms As Long)
-
-'Dim vz As Long
-
-'vz = GetTickCount
-
-'Do: DoEvents: Loop While Not GetTickCount - vz > ms
-
-'End Sub
-
 Function MMod(mLong)
   If mLong < 0 Then MMod = -mLong Else MMod = mLong
 End Function
@@ -404,12 +390,6 @@ Function MaxVal(inVal1, inVal2)
 
 End Function
 
-'Function MaxValue(ByRef inVal1 As Long, ByRef inVal2 As Long) As Long
-
-'If inVal1 > inVal2 Then MaxValue = inVal1 Else MaxValue = inVal2
-
-'End Function
-
 Function CountChars(inChar As String, inString As String) As Integer
 k = 0
 For x = 1 To Len(inString)
@@ -417,20 +397,6 @@ For x = 1 To Len(inString)
 Next
 CountChars = k
 End Function
-
-'Function EnPass(inText) As String
-'Dim inTmp, x
-
-'inTmp = String(Len(inText), 32)
-
-'For x = 1 To Len(inText)
-' Mid(inTmp, x, 1) = Chr(255 - Asc(Mid(inText, x, 1)))
-'Next
-
-'EnPass = inTmp
-
-'End Function
-
 
 Function GetLongFromData(inDay As Integer, inMonth As Integer, inYear As Integer) As Currency
 
