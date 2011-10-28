@@ -253,7 +253,8 @@ Global UseAutostart                     As Boolean
 Global UseAutostop                      As Boolean
 Global UseLinkDown                      As Boolean
 Global UseAutoNotify                    As Boolean
-
+Global use_auto_delay                   As Boolean
+Global use_auto_value                   As Integer
 
 Sub CleanRullerBuffer()
     DaysSelected = "00000000"

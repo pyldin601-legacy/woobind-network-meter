@@ -1185,7 +1185,7 @@ Begin VB.Form frmVelton
    End
    Begin VB.Image imgLevel 
       Height          =   135
-      Left            =   4745
+      Left            =   4740
       Picture         =   "frmMainWindow.frx":E29CC
       ToolTipText     =   "Network Ping Level"
       Top             =   660
@@ -1855,7 +1855,8 @@ UseAutostart = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Autostart
 UseAutostop = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Autostart", "UseAutostop", False))
 UseLinkDown = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Autostart", "UseLinkDown", False))
 UseAutoNotify = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Autostart", "UseAutoNotify", False))
-
+use_auto_delay = def_any_to_bool(GetSettingFake("Network Meter\" + IRP, "Autostart", "use_auto_delay", False))
+use_auto_value = Val(GetSettingFake("Network Meter\" + IRP, "Autostart", "use_auto_value", 10))
 
 ' Load Abonetic
 With Abonetic
@@ -2277,6 +2278,8 @@ WritePrivateProfileString "Autostart", "UseAutoNotify", def_bool_to_str(UseAutoN
 WritePrivateProfileString "Autostart", "UseAutostart", def_bool_to_str(UseAutostart), IRP
 WritePrivateProfileString "Autostart", "UseAutostop", def_bool_to_str(UseAutostop), IRP
 WritePrivateProfileString "Autostart", "UseLinkdown", def_bool_to_str(UseLinkDown), IRP
+WritePrivateProfileString "Autostart", "use_auto_delay", def_bool_to_str(use_auto_delay), IRP
+WritePrivateProfileString "Autostart", "use_auto_value", CStr(use_auto_value), IRP
 
 
 ' Save Abonetic
@@ -2473,7 +2476,7 @@ If Not NetworkStatus(0) = NetworkStatus(1) Then
             Select Case NetworkStatus(0)
             Case NS.Online
                 If NetworkStatus(1) = Offline Or NetworkStatus(1) = Linkdown Then
-                  Call delay_launch_set_timeout(5)
+                  Call delay_launch_set_timeout(use_auto_value)
                 End If
             Case NS.Offline, NS.Linkdown
                 If NetworkStatus(1) = Online Then
@@ -2485,7 +2488,7 @@ If Not NetworkStatus(0) = NetworkStatus(1) Then
             Select Case NetworkStatus(0)
             Case NS.Online, NS.Linkdown
                 If NetworkStatus(1) = Offline Then
-                  Call delay_launch_set_timeout(5)
+                  Call delay_launch_set_timeout(use_auto_value)
                 End If
             Case NS.Offline
                 If NetworkStatus(1) = Online Or NetworkStatus(1) = Linkdown Then
