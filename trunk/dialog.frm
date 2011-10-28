@@ -39,12 +39,30 @@ Begin VB.Form Dialog
       EndProperty
       Height          =   5415
       Index           =   8
-      Left            =   3540
+      Left            =   2940
       ScaleHeight     =   5415
       ScaleWidth      =   6855
       TabIndex        =   121
-      Top             =   7680
+      Top             =   960
       Width           =   6855
+      Begin VB.CheckBox chkDelay 
+         Caption         =   "с задержкой (сек):"
+         Height          =   195
+         Left            =   3840
+         TabIndex        =   147
+         Top             =   4020
+         Value           =   1  'Checked
+         Width           =   1875
+      End
+      Begin VB.TextBox txtDelay 
+         Alignment       =   2  'Center
+         Height          =   285
+         Left            =   5880
+         TabIndex        =   146
+         Text            =   "0"
+         Top             =   3960
+         Width           =   735
+      End
       Begin VB.CommandButton cmdMoveDown 
          Caption         =   "т"
          BeginProperty Font 
@@ -110,7 +128,7 @@ Begin VB.Form Dialog
          TabIndex        =   134
          Top             =   4020
          Value           =   1  'Checked
-         Width           =   5175
+         Width           =   3495
       End
       Begin ComctlLib.ListView lstProcesses 
          Height          =   1995
@@ -1457,11 +1475,11 @@ Begin VB.Form Dialog
       BorderStyle     =   0  'None
       Height          =   5415
       Index           =   0
-      Left            =   3000
+      Left            =   120
       ScaleHeight     =   5415
       ScaleWidth      =   6795
       TabIndex        =   2
-      Top             =   1020
+      Top             =   10020
       Width           =   6795
       Begin VB.CommandButton cmGetSettingWindow 
          Caption         =   "Настройки"
@@ -2337,6 +2355,11 @@ Private Sub chkConOnly_Click()
 sC
 End Sub
 
+Private Sub chkDelay_Click()
+  sC
+  Call CtrEnable(def_any_to_bool(chkDelay.Value), txtDelay)
+End Sub
+
 Private Sub chkFloatWindow_Click()
 sC
 chkSafe.Enabled = def_any_to_bool(chkFloatWindow.Value)
@@ -2405,6 +2428,10 @@ End Sub
 
 Private Sub chkSound_Click()
 sC
+End Sub
+
+Private Sub chkStartNotify_Click()
+  sC
 End Sub
 
 Private Sub chkTransparent_Click()
@@ -2716,6 +2743,9 @@ tmpData = FilterLanguage(LoadFile(def_complete_path(App.Path) + "credits.txt"), 
 
 txtTitles.Text = IIf(tmpData > "", tmpData, "'credits.txt' not found!")
 
+' autostart section
+chkDelay.Caption = localize_do("B328A1", "width delay (sec)")
+
 
 End Sub
 
@@ -2834,6 +2864,8 @@ prcEnable.Value = Val(-UseAutostart)
 prcStop.Value = Val(-UseAutostop)
 prcLinkDown.Value = Val(-UseLinkDown)
 chkStartNotify.Value = Val(-UseAutoNotify)
+chkDelay.Value = Val(-use_auto_delay)
+txtDelay.Text = CStr(use_auto_value)
 
 Dim vld As Label
 Dim accel As Integer
@@ -3223,6 +3255,8 @@ UseAutostart = def_any_to_bool(prcEnable.Value)
 UseAutostop = def_any_to_bool(prcStop.Value)
 UseLinkDown = def_any_to_bool(prcLinkDown.Value)
 UseAutoNotify = def_any_to_bool(chkStartNotify.Value)
+use_auto_delay = def_any_to_bool(chkDelay.Value)
+use_auto_value = Format(txtDelay.Text, "0")
 
 ' // SORTED
 ' // FRAME 0
@@ -3359,7 +3393,8 @@ sC
 
 Call CtrEnable(def_any_to_bool(prcEnable.Value), cmdMoveUp, cmdMoveDown, chkStartNotify, _
                                         prcRemove, prcAdd, lstProcesses, _
-                                        prcLinkDown, prcStop)
+                                        prcLinkDown, prcStop, chkDelay)
+Call CtrEnable(def_any_to_bool(chkDelay.Value) And def_any_to_bool(prcEnable.Value), txtDelay)
 
 End Sub
 
@@ -3377,7 +3412,7 @@ End Sub
 
 
 Private Sub prcLinkDown_Click()
-sC
+  sC
 End Sub
 
 Private Sub prcRemove_Click()
@@ -3391,7 +3426,7 @@ Private Sub prcRemove_Click()
 End Sub
 
 Private Sub prcStop_Click()
-sC
+  sC
 End Sub
 
 Private Sub sliAlpha_Change()
@@ -3476,6 +3511,10 @@ If Chr(KeyAscii) = "-" And InStr(1, txtCredits.Text, "-") = 0 Then Exit Sub
 If Chr(KeyAscii) = vbBack Then Exit Sub
 
 KeyAscii = 0
+End Sub
+
+Private Sub txtDelay_Change()
+  sC
 End Sub
 
 Private Sub txtLimit_Change()
