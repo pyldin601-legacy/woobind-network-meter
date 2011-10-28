@@ -150,7 +150,7 @@ Begin VB.Form Dialog
             Key             =   ""
             Object.Tag             =   ""
             Text            =   "Программа"
-            Object.Width           =   3881
+            Object.Width           =   2734
          EndProperty
          BeginProperty ColumnHeader(2) {0713E8C7-850A-101B-AFC0-4210102A8DA7} 
             SubItemIndex    =   1
