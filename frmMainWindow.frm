@@ -2452,7 +2452,7 @@ End If
 
 ' laucher delay appendix
 If delay_enabled Then
-  If Not delay_counter Then
+  If delay_counter = 0 Then
     delay_enabled = False
     LaunchlRecords
   Else
@@ -2472,16 +2472,26 @@ If Not NetworkStatus(0) = NetworkStatus(1) Then
         If UseLinkDown Then
             Select Case NetworkStatus(0)
             Case NS.Online
-                If NetworkStatus(1) = Offline Or NetworkStatus(1) = Linkdown Then Call delay_launch_set_timeout(5)
+                If NetworkStatus(1) = Offline Or NetworkStatus(1) = Linkdown Then
+                  Call delay_launch_set_timeout(5)
+                End If
             Case NS.Offline, NS.Linkdown
-                If NetworkStatus(1) = Online Then TerminatelRecords
+                If NetworkStatus(1) = Online Then
+                  delay_enabled = False
+                  TerminatelRecords
+                End If
             End Select
         Else
             Select Case NetworkStatus(0)
             Case NS.Online, NS.Linkdown
-                If NetworkStatus(1) = Offline Then Call delay_launch_set_timeout(5)
+                If NetworkStatus(1) = Offline Then
+                  Call delay_launch_set_timeout(5)
+                End If
             Case NS.Offline
-                If NetworkStatus(1) = Online Or NetworkStatus(1) = Linkdown Then TerminatelRecords
+                If NetworkStatus(1) = Online Or NetworkStatus(1) = Linkdown Then
+                  TerminatelRecords
+                  delay_enabled = False
+                End If
             End Select
         End If
     End If
