@@ -2455,7 +2455,7 @@ End If
 
 ' laucher delay appendix
 If delay_enabled Then
-  If delay_counter = 0 Then
+  If delay_counter = 0 Or Not use_auto_delay Then
     delay_enabled = False
     LaunchlRecords
   Else
