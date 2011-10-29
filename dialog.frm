@@ -4,7 +4,7 @@ Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
 Begin VB.Form Dialog 
    BorderStyle     =   4  'Fixed ToolWindow
    Caption         =   "Настройки"
-   ClientHeight    =   14730
+   ClientHeight    =   10770
    ClientLeft      =   6105
    ClientTop       =   1575
    ClientWidth     =   10035
@@ -22,7 +22,7 @@ Begin VB.Form Dialog
    MaxButton       =   0   'False
    MinButton       =   0   'False
    Picture         =   "dialog.frx":000C
-   ScaleHeight     =   14730
+   ScaleHeight     =   10770
    ScaleWidth      =   10035
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
@@ -43,7 +43,7 @@ Begin VB.Form Dialog
       ScaleHeight     =   5415
       ScaleWidth      =   6855
       TabIndex        =   121
-      Top             =   960
+      Top             =   1140
       Width           =   6855
       Begin VB.CheckBox chkDelay 
          Caption         =   "с задержкой (сек):"
@@ -181,7 +181,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image16 
          Height          =   15
          Left            =   240
-         Picture         =   "dialog.frx":2B3F
+         Picture         =   "dialog.frx":40FB
          Stretch         =   -1  'True
          Top             =   3840
          Width           =   6360
@@ -206,7 +206,7 @@ Begin VB.Form Dialog
          Width           =   780
       End
       Begin VB.Label Label27 
-         Caption         =   $"dialog.frx":2E72
+         Caption         =   $"dialog.frx":442E
          Height          =   675
          Left            =   180
          TabIndex        =   129
@@ -235,7 +235,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image15 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":2F1F
+         Picture         =   "dialog.frx":44DB
          Stretch         =   -1  'True
          Top             =   480
          Width           =   6360
@@ -278,7 +278,7 @@ Begin VB.Form Dialog
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
          TabIndex        =   83
-         Text            =   "dialog.frx":3252
+         Text            =   "dialog.frx":480E
          Top             =   120
          Width           =   6615
       End
@@ -342,7 +342,7 @@ Begin VB.Form Dialog
          ForeColor       =   &H00FF0000&
          Height          =   195
          Left            =   3690
-         MouseIcon       =   "dialog.frx":3258
+         MouseIcon       =   "dialog.frx":4814
          MousePointer    =   99  'Custom
          TabIndex        =   80
          Top             =   5040
@@ -365,7 +365,7 @@ Begin VB.Form Dialog
          ForeColor       =   &H00FF0000&
          Height          =   195
          Left            =   3660
-         MouseIcon       =   "dialog.frx":3562
+         MouseIcon       =   "dialog.frx":4B1E
          MousePointer    =   99  'Custom
          TabIndex        =   79
          Top             =   4740
@@ -393,7 +393,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image14 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":386C
+         Picture         =   "dialog.frx":4E28
          Stretch         =   -1  'True
          Top             =   480
          Width           =   6360
@@ -489,7 +489,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image12 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":3B9F
+         Picture         =   "dialog.frx":515B
          Stretch         =   -1  'True
          Top             =   2880
          Width           =   6360
@@ -506,7 +506,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image13 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":3ED2
+         Picture         =   "dialog.frx":548E
          Stretch         =   -1  'True
          Top             =   480
          Width           =   6360
@@ -567,7 +567,7 @@ Begin VB.Form Dialog
          Locked          =   -1  'True
          MultiLine       =   -1  'True
          TabIndex        =   125
-         Text            =   "dialog.frx":4205
+         Text            =   "dialog.frx":57C1
          Top             =   3900
          Width           =   6255
       End
@@ -763,7 +763,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image10 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":4259
+         Picture         =   "dialog.frx":5815
          Stretch         =   -1  'True
          Top             =   3780
          Width           =   6360
@@ -790,7 +790,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image11 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":458C
+         Picture         =   "dialog.frx":5B48
          Stretch         =   -1  'True
          Top             =   480
          Width           =   6360
@@ -820,7 +820,7 @@ Begin VB.Form Dialog
       Height          =   375
       Left            =   180
       TabIndex        =   86
-      Top             =   6600
+      Top             =   6780
       Width           =   2535
    End
    Begin VB.PictureBox opFrame 
@@ -1024,7 +1024,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image9 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":48BF
+         Picture         =   "dialog.frx":5E7B
          Stretch         =   -1  'True
          Top             =   3540
          Width           =   6360
@@ -1051,7 +1051,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image8 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":4BF2
+         Picture         =   "dialog.frx":61AE
          Stretch         =   -1  'True
          Top             =   480
          Width           =   6360
@@ -1201,7 +1201,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image7 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":4F25
+         Picture         =   "dialog.frx":64E1
          Stretch         =   -1  'True
          Top             =   3000
          Width           =   6360
@@ -1246,7 +1246,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image6 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":5258
+         Picture         =   "dialog.frx":6814
          Stretch         =   -1  'True
          Top             =   480
          Width           =   6360
@@ -1296,7 +1296,7 @@ Begin VB.Form Dialog
       Height          =   375
       Left            =   8340
       TabIndex        =   53
-      Top             =   6600
+      Top             =   6780
       Width           =   1455
    End
    Begin VB.PictureBox opFrame 
@@ -1419,7 +1419,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image5 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":558B
+         Picture         =   "dialog.frx":6B47
          Stretch         =   -1  'True
          Top             =   3240
          Width           =   6360
@@ -1446,7 +1446,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image4 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":58BE
+         Picture         =   "dialog.frx":6E7A
          Stretch         =   -1  'True
          Top             =   480
          Width           =   6360
@@ -1672,7 +1672,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image3 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":5BF1
+         Picture         =   "dialog.frx":71AD
          Stretch         =   -1  'True
          Top             =   4740
          Width           =   6360
@@ -1718,7 +1718,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image2 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":5F24
+         Picture         =   "dialog.frx":74E0
          Stretch         =   -1  'True
          Top             =   2640
          Width           =   6360
@@ -1745,7 +1745,7 @@ Begin VB.Form Dialog
       Begin VB.Image Image1 
          Height          =   15
          Left            =   180
-         Picture         =   "dialog.frx":6257
+         Picture         =   "dialog.frx":7813
          Stretch         =   -1  'True
          Top             =   480
          Width           =   6355
@@ -1779,7 +1779,7 @@ Begin VB.Form Dialog
       ScaleHeight     =   5475
       ScaleWidth      =   2535
       TabIndex        =   25
-      Top             =   960
+      Top             =   1140
       Width           =   2535
       Begin VB.Timer tmrVisible 
          Interval        =   100
@@ -1790,7 +1790,7 @@ Begin VB.Form Dialog
          Height          =   240
          Index           =   8
          Left            =   180
-         Picture         =   "dialog.frx":658A
+         Picture         =   "dialog.frx":7B46
          Top             =   4935
          Width           =   240
       End
@@ -1809,7 +1809,7 @@ Begin VB.Form Dialog
          Height          =   240
          Index           =   7
          Left            =   180
-         Picture         =   "dialog.frx":6991
+         Picture         =   "dialog.frx":7F4D
          Top             =   4440
          Width           =   240
       End
@@ -1828,7 +1828,7 @@ Begin VB.Form Dialog
          Height          =   240
          Index           =   5
          Left            =   180
-         Picture         =   "dialog.frx":6BF2
+         Picture         =   "dialog.frx":81AE
          Top             =   3405
          Width           =   240
       End
@@ -1847,7 +1847,7 @@ Begin VB.Form Dialog
          Height          =   240
          Index           =   6
          Left            =   180
-         Picture         =   "dialog.frx":6F7C
+         Picture         =   "dialog.frx":8538
          Top             =   3930
          Width           =   240
       End
@@ -1866,7 +1866,7 @@ Begin VB.Form Dialog
          Height          =   240
          Index           =   4
          Left            =   180
-         Picture         =   "dialog.frx":71E5
+         Picture         =   "dialog.frx":87A1
          Top             =   2870
          Width           =   240
       End
@@ -1874,7 +1874,7 @@ Begin VB.Form Dialog
          Height          =   240
          Index           =   3
          Left            =   180
-         Picture         =   "dialog.frx":7463
+         Picture         =   "dialog.frx":8A1F
          Top             =   2325
          Width           =   240
       End
@@ -1882,7 +1882,7 @@ Begin VB.Form Dialog
          Height          =   240
          Index           =   2
          Left            =   180
-         Picture         =   "dialog.frx":76AA
+         Picture         =   "dialog.frx":8C66
          Top             =   1785
          Width           =   240
       End
@@ -1890,7 +1890,7 @@ Begin VB.Form Dialog
          Height          =   240
          Index           =   1
          Left            =   180
-         Picture         =   "dialog.frx":793F
+         Picture         =   "dialog.frx":8EFB
          Top             =   1260
          Width           =   240
       End
@@ -1898,7 +1898,7 @@ Begin VB.Form Dialog
          Height          =   240
          Index           =   0
          Left            =   180
-         Picture         =   "dialog.frx":7BCA
+         Picture         =   "dialog.frx":9186
          Top             =   735
          Width           =   240
       End
@@ -2000,7 +2000,7 @@ Begin VB.Form Dialog
       Height          =   375
       Left            =   6720
       TabIndex        =   1
-      Top             =   6600
+      Top             =   6780
       Width           =   1455
    End
    Begin VB.CommandButton OKButton 
@@ -2009,7 +2009,7 @@ Begin VB.Form Dialog
       Height          =   375
       Left            =   5100
       TabIndex        =   0
-      Top             =   6600
+      Top             =   6780
       Width           =   1455
    End
    Begin MSComctlLib.ImageList ImageList1 
@@ -2025,19 +2025,19 @@ Begin VB.Form Dialog
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
          NumListImages   =   4
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "dialog.frx":7E37
+            Picture         =   "dialog.frx":93F3
             Key             =   ""
          EndProperty
          BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "dialog.frx":818B
+            Picture         =   "dialog.frx":9747
             Key             =   ""
          EndProperty
          BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "dialog.frx":84DF
+            Picture         =   "dialog.frx":9A9B
             Key             =   ""
          EndProperty
          BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "dialog.frx":8833
+            Picture         =   "dialog.frx":9DEF
             Key             =   ""
          EndProperty
       EndProperty
@@ -2046,15 +2046,8 @@ Begin VB.Form Dialog
       Height          =   5595
       Left            =   2880
       TabIndex        =   91
-      Top             =   840
+      Top             =   1020
       Width           =   6975
-   End
-   Begin VB.Line Line1 
-      BorderColor     =   &H00000000&
-      X1              =   0
-      X2              =   10040
-      Y1              =   720
-      Y2              =   720
    End
    Begin VB.Label Label37 
       AutoSize        =   -1  'True
@@ -2064,7 +2057,7 @@ Begin VB.Form Dialog
       Height          =   195
       Left            =   3360
       TabIndex        =   144
-      Top             =   6660
+      Top             =   6840
       Width           =   1140
    End
    Begin VB.Label lVer 
@@ -2072,12 +2065,11 @@ Begin VB.Form Dialog
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "Version 1.2.345"
-      ForeColor       =   &H00C0C0C0&
+      ForeColor       =   &H00E0E0E0&
       Height          =   195
-      Left            =   5160
+      Left            =   1020
       TabIndex        =   143
-      Top             =   240
-      Visible         =   0   'False
+      Top             =   540
       Width           =   1140
    End
    Begin VB.Label mnuTCAP 
@@ -2096,16 +2088,16 @@ Begin VB.Form Dialog
       EndProperty
       ForeColor       =   &H00FFFFFF&
       Height          =   285
-      Left            =   8875
+      Left            =   9050
       TabIndex        =   141
-      Top             =   215
+      Top             =   270
       Width           =   690
    End
    Begin VB.Image mnuTICO 
       Height          =   240
-      Left            =   9660
-      Picture         =   "dialog.frx":8B87
-      Top             =   240
+      Left            =   8580
+      Picture         =   "dialog.frx":A143
+      Top             =   0
       Visible         =   0   'False
       Width           =   240
    End
@@ -2125,9 +2117,9 @@ Begin VB.Form Dialog
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   285
-      Left            =   8890
+      Left            =   9060
       TabIndex        =   142
-      Top             =   230
+      Top             =   285
       Width           =   690
    End
 End
@@ -3026,7 +3018,7 @@ Private Sub Form_Load()
 If NoExit Then Unload Me: Exit Sub
 
 Set m_objIpHelper = New CIpHelper
-Me.Height = 7455
+Me.Height = 7700
 LoadConfig
 InitSettings
 DoEvents
@@ -3195,7 +3187,7 @@ mnuSEL.Top = mnuITM(index).Top - 130
 mnuSEL.Left = 45
 mnuSEL.Width = picMenu.Width - 90
 mnuTCAP.Caption = mnuITM(index).Caption
-mnuTICO.Picture = mnuICO(index).Picture
+'mnuTICO.Picture = mnuICO(index).Picture
 
 Dim undx, SIndex
 For undx = 0 To opFrame.Count - 1
@@ -3205,7 +3197,7 @@ Next undx
 SIndex = index
 
 opFrame(SIndex).Left = 2940
-opFrame(SIndex).Top = 960 ' 840
+opFrame(SIndex).Top = 1140 ' 1140
 opFrame(SIndex).Visible = True
 
 If index = 4 Then ReloadBonuses
