@@ -1278,7 +1278,7 @@ Dim Zond2 As Currency
 
 Dim previous_traffic_tax As Currency
 
-Dim TimeLongBack As Long
+Dim saved_time As Long
 Dim Blinker As Boolean
 
 
@@ -1662,8 +1662,8 @@ TrayAdd picTray, "Woobind Network Meter"
 
 
 WasSent = DataRcvedToday + DataXmitedToday
-TimeLongTemp = GetTickCount
-TimeLongBack = TimeLongTemp
+
+saved_time = GetTickCount
 
 If iph_get_traffic(StartRc, StartXm) Then
    ProgConnected = True
@@ -2397,10 +2397,10 @@ Sub tmrAction_Timer()
 On Error Resume Next
 
 Dim iph_traffic_result As Boolean
-Dim TimeLong As Currency 'todo
-Dim TimeLongTemp As Long 'todo
 Dim WeekVariable
 
+Dim stamp_time As Long
+Dim delta_time As Single
 
 
 current_traffic_tax = taxes_matrix(Weekday(Now, vbMonday) - 1, Hour(Now))
@@ -2850,19 +2850,19 @@ UpdateFluentWindow
     MassSpeed(e, 0) = MassSpeed(e - 1, 0)
     MassSpeed(e, 1) = MassSpeed(e - 1, 1)
   Next e
+
+stamp_time = GetTickCount
+delta_time = (stamp_time - saved_time) / 1000
+'Debug.Print Format(delta_time, "0.00")
+
+delta_time = IIf(delta_time >= 0, delta_time, 1)
+
+saved_time = stamp_time
   
-If Not TimeLongBack = 0 Then
-    TimeLongTemp = GetTickCount
-    If TimeLongTemp >= TimeLongBack Then TimeLong = 1000 / (TimeLongTemp - TimeLongBack) Else TimeLong = 1
-    TimeLongBack = TimeLongTemp
-Else
-    TimeLongTemp = GetTickCount
-    TimeLong = 1
-    TimeLongBack = TimeLongTemp
-End If
   
-  MassSpeed(0, 0) = iph_received_delta * TimeLong
-  MassSpeed(0, 1) = iph_transmitted_delta * TimeLong
+  
+  MassSpeed(0, 0) = iph_received_delta / delta_time
+  MassSpeed(0, 1) = iph_transmitted_delta / delta_time
   
   frmOK.DrawGraph IIf(MassSpeed(0, 0) > MassSpeed(0, 1), MassSpeed(0, 0), MassSpeed(0, 1))
   
