@@ -312,9 +312,9 @@ Private Sub tmrE_Timer()
         If Trys > 0 Then Trys = Trys - 1
         If (Trys = 0 And Me.Visible = False And Not superMenu.Visible) Then
             'FillIn Me
-            Rescan
             OnTopForm Me, True
         End If
     End If
+    Rescan
     
 End Sub
