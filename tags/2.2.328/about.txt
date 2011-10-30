@@ -1,0 +1,30 @@
+[RUSSIAN]
+Эта программа предназначена для учета сетевого трафика, а также для подсчета денег, которые Вы тратите за скачанные мегабайты.
+
+Также программа умеет вести статистику по принятым / отправленным данным за месяц, неделю, день, и многое другое.
+
+Автор программы: Лахтадыр Роман Юриевич
+
+Автор выражает благодарность: Охрименку В.В. (aka LoRD`EP), Иотко Андрею, Головченко Алексею за помощь в функциональном развитии программы.
+
+
+[UKRAINIAN]
+Ця програма призначена для обліку мережевого трафіку, а також для підрахунку грошей, які Ви витрачаєте за викачані мегабайти.
+
+Також програма уміє вести статистику по прийнятих / відправленим даним за місяць, тиждень, день, і багато що інше.
+
+
+Автор програми: Лахтадир Роман Юрійович
+
+Автор виражає подяку: Охріменку В.В. (aka LORDEP), Іотко Андрію, Головченко Олексію за допомогу у функціональному розвитку програми.
+
+
+[ENGLISH]
+This program is intended for the account of network traffic, and also for the count of money which you outlay for the got megabytes.
+
+Also program is able to conduct statistics for received / sent data for a month, week, day, and other great deal.
+
+Original programmer: Lakhtadir Roman Yurievich
+
+An author expresses gratitude for: Ohrimenko V.V. (kak LoRD`EP), Iotko Andrew, Golovchenko Alexey for a help in functional development of the program.
+

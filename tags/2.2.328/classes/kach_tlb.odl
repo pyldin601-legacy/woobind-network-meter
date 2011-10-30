@@ -1,0 +1,23 @@
+[
+   uuid(17E6A9F8-CC32-4380-AAA3-D82FB3E4095C),
+   helpstring("Качалка: TLB поддержки"),
+   version(1.0)
+//derived from Edanmo's olelib
+]
+library kach_tlb {
+
+   importlib("stdole2.tlb");
+
+#include "ifaces.inc"
+#include "types.inc"
+#include "persist.inc"
+#include "stream.inc"
+#include "enum.inc"
+#include "bindctx.inc"
+#include "ole32.inc"
+#include "oleaut32.inc"
+#include "kernel32.inc"
+#include "urlmon.inc"
+#include "msvbvm60.inc"
+
+};

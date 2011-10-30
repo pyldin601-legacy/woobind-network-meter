@@ -1,0 +1,393 @@
+EN
+
+Автор: Roman Gemini
+
+LANG_AUTHOR=Roman Gemini
+LANG_NAME=English
+
+
+WND001=today:
+WND002=per week:
+WND003=per month:
+WND004=total:
+WND005=Charges
+
+WND006=Incoming speed:
+WND007=Outgoing speed:
+WND008=Average volume:
+WND009=Average spending:
+WNDX01=Expecting:
+WND010=Wholesale (Ul/Dl)
+WND011=Credits left:
+WND012=Connection speed:
+WND013=Statistics
+
+WND014=Traffic volume limit:
+WND015=Left:
+WND016=Volume limit
+
+WND017=Bytes sent:
+WND018=Bytes received:
+WND019=Bytes total:
+WND020=Spent:
+WND021=Detected maximal speed:
+
+SC01A=Resets the values of measuring meter (values of global counters will remain untouched)
+SC02A=Show traffic reports
+SC03A=Review, set or cancel the wholesale traffic
+SC04A=Tariff setup
+SC05A=Open the options window
+
+WNDA01=Current connection:
+WNDA02=Transfered per day:
+WNDA03=Transfered per month:
+WNDA04=Left (in limit):
+WNDA05=Receiving/sending speed:
+WNDA06=Overlimit:
+
+WRD001=/day
+WRD002=/week
+WRD003=/month
+WRD003A=/s
+WRD004=Remaining traffic for today: 
+WRD005=Remaining traffic for this week: 
+WRD006=Remaining traffic for this month:
+WRD006a=Remaining traffic:
+WRD007=Bytes
+WRD008=B
+WRD009=K
+WRD010=M
+WRD011=G
+WRD012=T
+WRD013=bit
+WRD014=Sent
+WRD015=Received
+
+
+MSG001=Beginning from
+MSG002=Attention! Traffic volume limit is exhausted!
+MSG003=Overlimit: 
+MSG004=Are you sure want to reset all counters?
+MSG005=Network is unavailable
+MSG006=Network is disconnected!
+MSG007=Network is connected!
+
+
+INIP1A1=Connection
+
+INIP1L2=Interface
+INIP1L3=Notify when connection state will be changed
+INIP1L4=Check network availability by using host/IP:
+INIP1L5=Standart (google)
+INIP1L6=Custom:
+
+
+INIP1A2=Options
+
+INIP1L7=Launch program on Windows startup
+INIP1L8=Automatically check for new versions
+INIP1L9=Stick to desktop edges
+INIP1L10=Main window transparency level
+
+
+INIP1A3=Language
+
+INIP1L11=Interface language
+
+
+; Спливаючі вікна
+
+INIP2A1=Dropdown window setup
+
+INIP2L1=Use dropdown window
+INIP2L2=Protect window from the casual emerging
+INIP2L3=Always on top
+INIP2L4=Lock window on screen
+
+
+INIP2A2=Traffic direction
+
+INIP2L5=Per current connection:
+INIP2L6=Per today:
+INIP2L7=Per current month:
+INIP2L8=Emerge only when connected
+
+
+
+; Обмежувач трафіка
+
+INIP3A1=Traffic limit
+
+INIP3L1=Use traffic limit
+INIP3L2=Limit
+INIP3L3=Traffic direction
+
+
+INIP3A2=Notifications
+
+INIP3L4=Warn when traffic volume limit exhausted
+INIP3L5=Warn when traffic volume left less than...
+
+INIP3L6=per day
+INIP3L7=per week
+INIP3L8=per month
+INIP3L9=per counter
+
+
+; Тарифи
+
+INIP4A1=Traffic cost
+
+INIP4L1=Rules (for dynamic tariffs)
+INIP4L2=Time
+INIP4L3=Days of week
+INIP4L4=Cost
+INIP4L5=Add rule...
+INIP4L6=Remove rule
+INIP4L7=Default static tariff. 1 MB of data costs:
+
+
+INIP4A2=Additional
+
+INIP4L8=Traffic direction
+INIP4L9=Credits (left):
+INIP4L10=Currency:
+INIP4L12=Notify when traffic cost will be changed
+
+; Оптовий трафік
+
+INIP5A1=Change/set
+
+INIP5L0=Use wholesale traffic
+INIP5L1=Separated traffic
+INIP5L2=Global traffic
+INIP5L3=Outgoing:
+INIP5L4=Incoming:
+INIP5L5=Global:
+INIP5L6=Cost
+
+
+INIP5A2=Current status
+
+INIP5L7=Status
+
+
+INIP5S1=Not used
+INIP5S2=Active
+INIP5S3=Exhausted
+
+
+
+INIP6A1=Other
+
+INIP6L1=To clean the values of all of meters and reports, push this button:
+
+INIP6L2=Reset
+
+
+INIP1=Preferences
+INIP2=Dropdown window
+INIP3=Traffic limit
+INIP4=Tariffs
+INIP5=Wholesale traffic
+INIP6=Additionally
+INIP7=About programm
+INIP8=Version history
+
+
+
+INIB1=OK
+INIB2=Cancel
+INIB3=Apply
+INIB4=Check for updates
+INIB5=Reset
+
+INI=Configuration
+
+
+; Звіти
+TAB001=Per day
+TAB002=Per week
+TAB003=Per month
+TAB004=Per year
+
+2.2. Слова
+WRD0016=Incoming/Outgoing
+WRD0017=Incoming
+WRD0018=Outgoing
+
+
+MSG010=Are you sure want to clean an report and testimony of all of meters?
+
+
+5. Тарифи
+WND059=All directions
+WND060=Incoming
+WND061=Outgoing
+WND071=Prevailing
+
+FORM04=Traffic report
+
+MNU001=Show/hide program window...
+MNU002=Show traffic reports...
+MNU003=Options...
+MNU004=Tariff setup...
+MNU005=Wholesale traffic...
+MNU006=About...
+MNU011=Launch with Wіndows on startup
+MNU012=Check for updates...
+MNU007=Close Woobind Network Meter
+MNU013=Visit programm forum...
+
+ADD001=Period
+ADD002=Transferred
+ADD003=Received
+ADD004=Summ
+ADD005=Spent
+
+BTN001=Close
+BTN002=Clear
+
+; Float Window Menu
+FLOAT_WINDOW_01=Attach left
+FLOAT_WINDOW_02=Attach right
+FLOAT_WINDOW_03=Attach centered
+FLOAT_WINDOW_04=Don't show this window
+
+
+///////////////////////// INTERFACES /////////////////////////////
+No Monitoring=No Monitoring
+Only DialUp connections=Only DialUp/VPN connections
+Only LAN connections=Only LAN connections
+All connections=All connections
+Leave as Is=Leave as Is
+//////////////////////////////////////////////////////////////////
+
+; Повідомлення балунів
+BALLOON01=Traffic cost was changed.\nNew cost: %s per megabyte.
+
+
+; MESSAGES
+MESSAGE01=Warning! A wholesale traffic, marked before, was not exhausted yet! Are you sure that want to make alteration?
+MESSAGE02=A cost can be entered in a range between 1 and 500!
+
+
+// MESSAGES
+xMSG01=File exists. Overwrite?
+
+
+// TABS
+xTAB01=Clean
+
+// LABELS
+xDAY=Day
+xWEEK=Week
+xMONTH=Month
+xYEAR=Year
+xSAVE=Export traffic report
+xSELECT=Selected
+xSELECT2=Selected (avg.)
+
+// BUTTONS
+xBUT01=Export
+xBUT02=Check
+xBUT03=Attach
+
+
+; Правила
+RULL1=Adding rule to the tariff plan
+RULL2=Time
+RULL3=from
+RULL4=to
+RULL5=Days, when rule works
+RULL6=Tariff
+RULL7=Cost of 1 MB
+RULL8=All
+RULL9=Mon...Fri
+RULL10=Holidays
+
+
+NOT01=Notifications configuration
+NOT02=Use sound
+NOT03=Show notifications from top of desktop
+NOT04=Test
+
+
+; ТЕСТО
+TEST01=This is standart message
+TEST02=This is standart notification
+TEST03=This message with high importance
+TEST04=This message with very high importance!\nClick here to close...
+ 
+; B324
+B324M0=Clean all reports...
+B324M1=Remove selected lines
+
+B324M2=Export tab...
+B324M6=Export selected lines...
+
+B324M7=Export
+B324M8=Reports
+
+B324M3=Close window
+B324M4=Comma-separated values
+B324M5=Ary you sure want to cleanup ALL traffic reports?
+B324M9=Copy to clipboard
+B324MA=Select all
+
+B324A0=Don't apply for current day/month
+B324A1=Repeat:
+
+B324C0=Don't repeat
+B324C1=Everyday
+B324C2=Everymonth
+B324C3=unknown
+
+B324B0=Setted:
+B324B1=MBytes of both
+B324B2=MBytes of incoming
+B324B3=MBytes of outgoing
+B324B4=traffic
+B324B5=for
+B324B6=Repeat:
+B324B7=No
+B324B8=Left:
+B324B9=MBytes
+B324BA=Repeat:
+
+B324D0=Status: active
+B324D1=Status: no traffic left
+
+B324E0=For last 48 hours
+B324E1=Visit progam Web-site
+B324E2=Write e-mail to author
+B324E3=version
+B324E4=Menu
+B324E5=Time
+
+; B325
+B325A0=Binary prefix (1 KB = 1024 bytes, 1 MB = 1024 KB, etc.)
+
+; B326
+B326A0=Programs' Autostart
+B326A1=List of the started programs
+B326A2=Woobind Network Meter can automatically start the programs indicated below at appearance of connection. Specify the programs which Woobind Network Meter must started at connection's appearance.
+B326A3=Options
+B326A4=Use autostart of the programs
+B326A5=Exit the started programs at the break of connection
+B326A6=Event "Network Inaccessible" as the break of connection
+B326A7=Report about a start or closing of the programs
+B326A8=Add...
+B326A9=Delete
+B326AA=Location
+B326AB=Name
+
+B326B0=Autostart of the programs.\nSuccessfully started
+B326B1=of
+B326B2=programs
+B326B3=\nSome programs were already started:
+B326B4=Autoexit the programs.\nSuccessfully closed
+
+B326C0=Change the path of the program:
+
+B328A1=width delay (sec):
