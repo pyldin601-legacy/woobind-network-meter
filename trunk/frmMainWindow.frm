@@ -219,7 +219,7 @@ Begin VB.Form frmVelton
    End
    Begin VB.Frame Frame2 
       BackColor       =   &H00FFFFFF&
-      Caption         =   "Ограничение трафика"
+      Caption         =   "Traffic limit"
       Height          =   795
       Left            =   4920
       TabIndex        =   40
@@ -248,7 +248,7 @@ Begin VB.Form frmVelton
       Begin VB.Label Label14 
          Alignment       =   1  'Right Justify
          BackStyle       =   0  'Transparent
-         Caption         =   "Остаток в лимите:"
+         Caption         =   "Traffic left:"
          Height          =   195
          Left            =   60
          TabIndex        =   42
@@ -258,7 +258,7 @@ Begin VB.Form frmVelton
       Begin VB.Label Label13 
          Alignment       =   1  'Right Justify
          BackStyle       =   0  'Transparent
-         Caption         =   "Ограничение:"
+         Caption         =   "Limit quote:"
          Height          =   195
          Left            =   60
          TabIndex        =   41
@@ -293,7 +293,7 @@ Begin VB.Form frmVelton
    End
    Begin VB.Frame Frame6 
       BackColor       =   &H00FFFFFF&
-      Caption         =   "Сведения"
+      Caption         =   "Statistic"
       Height          =   2895
       Left            =   4920
       TabIndex        =   10
@@ -322,7 +322,7 @@ Begin VB.Form frmVelton
       Begin VB.Label Label1 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Ожидается к концу месяца:"
+         Caption         =   "Expecting for end of month:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -336,7 +336,7 @@ Begin VB.Form frmVelton
          Left            =   240
          TabIndex        =   54
          Top             =   1560
-         Width           =   2520
+         Width           =   2400
       End
       Begin VB.Label lblBonLeft 
          Alignment       =   1  'Right Justify
@@ -361,12 +361,12 @@ Begin VB.Form frmVelton
       Begin VB.Label Label9 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Ост. бонуса (Dl/Ul)"
+         Caption         =   "Spec. conditions left (Dl/Ul)"
          Height          =   195
          Left            =   240
          TabIndex        =   46
          Top             =   1920
-         Width           =   1665
+         Width           =   2355
       End
       Begin VB.Label lblCredit 
          Alignment       =   1  'Right Justify
@@ -391,7 +391,7 @@ Begin VB.Form frmVelton
       Begin VB.Label Label10 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Деньги в лимите:"
+         Caption         =   "Money in limit:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -405,7 +405,7 @@ Begin VB.Form frmVelton
          Left            =   240
          TabIndex        =   36
          Top             =   2220
-         Width           =   1530
+         Width           =   1260
       End
       Begin VB.Label lbTrader 
          Alignment       =   1  'Right Justify
@@ -430,7 +430,7 @@ Begin VB.Form frmVelton
       Begin VB.Label Label8 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Суточный расход:"
+         Caption         =   "Avg. spent per day:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -444,7 +444,7 @@ Begin VB.Form frmVelton
          Left            =   240
          TabIndex        =   34
          Top             =   1260
-         Width           =   1620
+         Width           =   1710
       End
       Begin VB.Line Line3 
          X1              =   240
@@ -463,7 +463,7 @@ Begin VB.Form frmVelton
       Begin VB.Label Label12 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Cуточная скорость:"
+         Caption         =   "Avg. per day:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -477,7 +477,7 @@ Begin VB.Form frmVelton
          Left            =   240
          TabIndex        =   24
          Top             =   1020
-         Width           =   1725
+         Width           =   1185
       End
       Begin VB.Label lblspeedavg 
          Alignment       =   1  'Right Justify
@@ -503,7 +503,7 @@ Begin VB.Form frmVelton
          Alignment       =   1  'Right Justify
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "0 Мбит"
+         Caption         =   "0"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -515,20 +515,20 @@ Begin VB.Form frmVelton
          EndProperty
          ForeColor       =   &H00404000&
          Height          =   195
-         Left            =   3180
+         Left            =   3660
          TabIndex        =   22
          Top             =   2520
-         Width           =   585
+         Width           =   105
       End
       Begin VB.Label Label2 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Скорость подключения:"
+         Caption         =   "Connection speed:"
          Height          =   195
          Left            =   240
          TabIndex        =   21
          Top             =   2520
-         Width           =   2175
+         Width           =   1605
       End
       Begin VB.Label lbUlSpd 
          Alignment       =   1  'Right Justify
@@ -573,7 +573,7 @@ Begin VB.Form frmVelton
       Begin VB.Label Label21 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Скорость приема:"
+         Caption         =   "Receiving speed:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -587,12 +587,12 @@ Begin VB.Form frmVelton
          Left            =   240
          TabIndex        =   12
          Top             =   360
-         Width           =   1575
+         Width           =   1470
       End
       Begin VB.Label Label22 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Скорость передачи:"
+         Caption         =   "Transmitting speed:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -606,7 +606,7 @@ Begin VB.Form frmVelton
          Left            =   240
          TabIndex        =   11
          Top             =   600
-         Width           =   1785
+         Width           =   1710
       End
    End
    Begin VB.Frame Frame7 
@@ -678,7 +678,7 @@ Begin VB.Form frmVelton
       Begin VB.Label Label11 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Макс. замеченная скорость:"
+         Caption         =   "Detected maximum speed:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -692,7 +692,7 @@ Begin VB.Form frmVelton
          Left            =   240
          TabIndex        =   38
          Top             =   1380
-         Width           =   2505
+         Width           =   2310
       End
       Begin VB.Label Label6 
          Alignment       =   1  'Right Justify
@@ -717,7 +717,7 @@ Begin VB.Form frmVelton
       Begin VB.Label Label4 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Сумма байт:"
+         Caption         =   "Bytes total:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -731,7 +731,7 @@ Begin VB.Form frmVelton
          Left            =   240
          TabIndex        =   32
          Top             =   780
-         Width           =   1095
+         Width           =   990
       End
       Begin VB.Label lbSinceSumm 
          Alignment       =   1  'Right Justify
@@ -756,7 +756,7 @@ Begin VB.Form frmVelton
       Begin VB.Label Label19 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Начислено:"
+         Caption         =   "Spent:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -770,7 +770,7 @@ Begin VB.Form frmVelton
          Left            =   240
          TabIndex        =   8
          Top             =   1080
-         Width           =   1020
+         Width           =   555
       End
       Begin VB.Label lbSinceRecev 
          Alignment       =   1  'Right Justify
@@ -815,7 +815,7 @@ Begin VB.Form frmVelton
       Begin VB.Label Label18 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Принято байт:"
+         Caption         =   "Bytes received:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -829,12 +829,12 @@ Begin VB.Form frmVelton
          Left            =   240
          TabIndex        =   5
          Top             =   540
-         Width           =   1245
+         Width           =   1350
       End
       Begin VB.Label Label17 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Передано байт:"
+         Caption         =   "Bytes sent:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -848,12 +848,12 @@ Begin VB.Form frmVelton
          Left            =   240
          TabIndex        =   4
          Top             =   300
-         Width           =   1395
+         Width           =   975
       End
    End
    Begin VB.Frame Frame1 
       BackColor       =   &H00FFFFFF&
-      Caption         =   "Начисления"
+      Caption         =   "Counters"
       Height          =   1635
       Left            =   300
       TabIndex        =   0
@@ -942,7 +942,7 @@ Begin VB.Form frmVelton
       Begin VB.Label wnd004 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "за все время:"
+         Caption         =   "per all time:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -956,7 +956,7 @@ Begin VB.Form frmVelton
          Left            =   300
          TabIndex        =   20
          Top             =   1200
-         Width           =   1230
+         Width           =   1050
       End
       Begin VB.Label lbXmitedAll 
          Alignment       =   1  'Right Justify
@@ -972,7 +972,7 @@ Begin VB.Form frmVelton
       Begin VB.Label wnd003 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "за месяц:"
+         Caption         =   "per month:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -986,7 +986,7 @@ Begin VB.Form frmVelton
          Left            =   300
          TabIndex        =   18
          Top             =   900
-         Width           =   870
+         Width           =   960
       End
       Begin VB.Label lbXmitedMonth 
          Alignment       =   1  'Right Justify
@@ -1002,7 +1002,7 @@ Begin VB.Form frmVelton
       Begin VB.Label wnd002 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "за неделю:"
+         Caption         =   "per week:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -1016,7 +1016,7 @@ Begin VB.Form frmVelton
          Left            =   300
          TabIndex        =   16
          Top             =   600
-         Width           =   1020
+         Width           =   870
       End
       Begin VB.Label lbXmitedWeek 
          Alignment       =   1  'Right Justify
@@ -1043,7 +1043,7 @@ Begin VB.Form frmVelton
       Begin VB.Label wnd001 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "за сегодня:"
+         Caption         =   "per today:"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -1057,7 +1057,7 @@ Begin VB.Form frmVelton
          Left            =   300
          TabIndex        =   1
          Top             =   300
-         Width           =   1035
+         Width           =   900
       End
    End
    Begin VB.PictureBox imgPanel 
@@ -1653,7 +1653,7 @@ NetworkText(2) = "Online"
 
 host_is_alive = True
 iph_reset_traffic_flag = True
-NetworkStatus(0) = Offline
+net_connection_status(0) = Offline
 ProgConnected = False
 Me.Visible = False
 MultiCounter = -200
@@ -1726,7 +1726,7 @@ Sub LoadConfiguration()
 ' // SORTED OPTIONS
 ' // FRAME 0
 ' >> INTERFACES
-PingNetwork = GetSettingFake("Network Meter\" + IRP, "Ping Settings", "PingNetwork", "0")
+use_ping_host = GetSettingFake("Network Meter\" + IRP, "Ping Settings", "PingNetwork", "0")
 PingMode = GetSettingFake("Network Meter\" + IRP, "Ping Settings", "PingMode", "0")
 PingManual = GetSettingFake("Network Meter\" + IRP, "Ping Settings", "PingManual", "127.0.0.1")
 iph_interface = iph_interface_decode(GetSettingFake("Network Meter\" + IRP, "Configuration", "ActiveInterface", ALL_OFF))
@@ -2131,7 +2131,7 @@ Dim PingString As String
 
  
 
-If PingNetwork = True Then
+If use_ping_host = True Then
     
     
     If PingMode = 0 Then
@@ -2178,7 +2178,7 @@ IRP = def_complete_path(App.Path) + "app_data.ini"
 ' // SORTED OPTIONS
 ' // FRAME 0
 ' >> INTERFACES
-WritePrivateProfileString "Ping Settings", "PingNetwork", def_bool_to_str(PingNetwork), IRP
+WritePrivateProfileString "Ping Settings", "PingNetwork", def_bool_to_str(use_ping_host), IRP
 WritePrivateProfileString "Ping Settings", "PingMode", CStr(PingMode), IRP
 WritePrivateProfileString "Ping Settings", "PingManual", CStr(PingManual), IRP
 WritePrivateProfileString "Configuration", "ActiveInterface", iph_interface_encode(iph_interface), IRP
@@ -2402,7 +2402,6 @@ Dim WeekVariable
 Dim stamp_time As Long
 Dim delta_time As Single
 
-
 current_traffic_tax = taxes_matrix(Weekday(Now, vbMonday) - 1, Hour(Now))
 
 credit_blinker_status = Not credit_blinker_status
@@ -2446,11 +2445,11 @@ End If
 ' Network status update
 
 If iph_traffic_result = True And host_is_alive = True Then
-   Let NetworkStatus(0) = 2
+   Let net_connection_status(0) = 2
 ElseIf iph_traffic_result = True And host_is_alive = False Then
-   Let NetworkStatus(0) = 1
+   Let net_connection_status(0) = 1
 ElseIf iph_traffic_result = False Then
-   Let NetworkStatus(0) = 0
+   Let net_connection_status(0) = 0
 End If
 
 ' laucher delay appendix
@@ -2463,35 +2462,35 @@ If delay_enabled Then
   End If
 End If
 
-If Not NetworkStatus(0) = NetworkStatus(1) Then
+If Not net_connection_status(0) = net_connection_status(1) Then
     tmrAverage_Timer
     If FloatNotify = True Then
-      If NetworkStatus(0) = Linkdown Then ShowBalloon "Woobind Network Meter", 1, localize_do("MSG005", "Сеть недоступна")
-      If NetworkStatus(0) = Offline Then ShowBalloon "Woobind Network Meter", 1, localize_do("MSG006", "Соединение разорвано")
-      If NetworkStatus(0) = Online Then ShowBalloon "Woobind Network Meter", 1, localize_do("MSG007", "Соединение установлено")
+      If net_connection_status(0) = Linkdown Then ShowBalloon "Woobind Network Meter", 1, localize_do("MSG005", "Сеть недоступна")
+      If net_connection_status(0) = Offline Then ShowBalloon "Woobind Network Meter", 1, localize_do("MSG006", "Соединение разорвано")
+      If net_connection_status(0) = Online Then ShowBalloon "Woobind Network Meter", 1, localize_do("MSG007", "Соединение установлено")
     End If
     
     If UseAutostart Then
         If UseLinkDown Then
-            Select Case NetworkStatus(0)
+            Select Case net_connection_status(0)
             Case NS.Online
-                If NetworkStatus(1) = Offline Or NetworkStatus(1) = Linkdown Then
+                If net_connection_status(1) = Offline Or net_connection_status(1) = Linkdown Then
                   Call delay_launch_set_timeout(use_auto_value)
                 End If
             Case NS.Offline, NS.Linkdown
-                If NetworkStatus(1) = Online Then
+                If net_connection_status(1) = Online Then
                   delay_enabled = False
                   TerminatelRecords
                 End If
             End Select
         Else
-            Select Case NetworkStatus(0)
+            Select Case net_connection_status(0)
             Case NS.Online, NS.Linkdown
-                If NetworkStatus(1) = Offline Then
+                If net_connection_status(1) = Offline Then
                   Call delay_launch_set_timeout(use_auto_value)
                 End If
             Case NS.Offline
-                If NetworkStatus(1) = Online Or NetworkStatus(1) = Linkdown Then
+                If net_connection_status(1) = Online Or net_connection_status(1) = Linkdown Then
                   TerminatelRecords
                   delay_enabled = False
                 End If
@@ -2500,13 +2499,13 @@ If Not NetworkStatus(0) = NetworkStatus(1) Then
     End If
     
     
-    If NetworkStatus(0) = Online And EveryDayCheck Then CheckUpdate False
-    If Not NetworkStatus(0) = Offline Then iph_reset_traffic_flag = True: CheckLimitsX
-    If NetworkStatus(0) = Offline Then iph_reset_traffic_flag = True
+    If net_connection_status(0) = Online And EveryDayCheck Then CheckUpdate False
+    If Not net_connection_status(0) = Offline Then iph_reset_traffic_flag = True: CheckLimitsX
+    If net_connection_status(0) = Offline Then iph_reset_traffic_flag = True
 
 End If
 
-NetworkStatus(1) = NetworkStatus(0)
+net_connection_status(1) = net_connection_status(0)
 
 Select Case DataLimitDivide
 Case 0:
@@ -2523,13 +2522,13 @@ If frmOK.Visible = Not FloatWindow Then frmOK.Visible = FloatWindow
 
 
 
-If NetworkStatus(0) = Online Then
+If net_connection_status(0) = Online Then
      frmOK.imStat.Picture = frmOK.picON.Picture
      picA.Picture = frmOK.picON.Picture
-ElseIf NetworkStatus(0) = Linkdown Then
+ElseIf net_connection_status(0) = Linkdown Then
      frmOK.imStat.Picture = frmOK.picDOWN.Picture
      picA.Picture = frmOK.picDOWN.Picture
-ElseIf NetworkStatus(0) = Offline Then
+ElseIf net_connection_status(0) = Offline Then
      frmOK.imStat.Picture = frmOK.picOFF.Picture
      picA.Picture = frmOK.picOFF.Picture
 End If
@@ -2629,7 +2628,7 @@ RememberMe = iph_traffic_result
     CurrDay = Day(Now)
   End If
   
-  If Hour(Now) <> Hour(CurrentHour) And Not NetworkStatus(0) = Offline Then
+  If Hour(Now) <> Hour(CurrentHour) And Not net_connection_status(0) = Offline Then
     SaveCurrentHourStatistic DataXmitedHour, DataRcvedHour, TaxHour, CurrentHour
     CurrentHour = Now
     DataXmitedHour = 0
@@ -3049,25 +3048,25 @@ End Select
 End Function
 
 Private Sub tmrEE_Timer()
+
 On Error Resume Next
+
 Dim orX As Currency, orR As Currency
 Dim tmpPicture As String
-
+Dim dHandle As Long
 
 If DataXmitedTemp < DataXmitedToday = 0 Then DataXmitedTemp = DataXmitedToday
 If DataRcvedTemp < DataRcvedToday = 0 Then DataRcvedTemp = DataRcvedToday
-Dim dHandle As Long
 
 Blinker = Not Blinker
 
 orX = (DataXmitedToday - DataXmitedTemp)
 orR = (DataRcvedToday - DataRcvedTemp)
 
-
 If ProgConnected = False Then
   dHandle = tray_icons(1)
 Else
-  If PingNetwork = True And host_is_alive = False Then
+  If use_ping_host = True And host_is_alive = False Then
     dHandle = tray_icons(2) ' Link down
   ElseIf MMod(orR - orX) <= MaxVal(orR, orX) / 1.8 And MaxVal(orR, orX) > 0 Then
     dHandle = tray_icons(4) ' Both
@@ -3075,32 +3074,27 @@ Else
     dHandle = tray_icons(5) ' Dl
   ElseIf orR < orX Then
     dHandle = tray_icons(6) ' Ul
-  ElseIf PingNetwork = False Then
+  ElseIf use_ping_host = False Then
     dHandle = tray_icons(3)
-  ElseIf PingNetwork = True And host_is_alive = True Then
+  ElseIf use_ping_host = True And host_is_alive = True Then
     dHandle = tray_icons(3)
   End If
 End If
 
 If Blinker = True And CurrLimit = LimitStatus.Redline And TipPreLimit Then
     dHandle = tray_icons(7) ' Yellow Alert
-
 ElseIf Blinker = True And CurrLimit = LimitStatus.Overload Then
     dHandle = tray_icons(8) ' Red Alert
-
 End If
 
 
 If ProgConnected = True Then TrayModify picTray, "", dHandle
 
 If ProgConnected = False Then TrayModify picTray, Left(filter_interface_name(localize_do(iph_interface, iph_interface)), 45) + _
-        " (" + NetworkText(NetworkStatus(0)) + ")", dHandle
+        " (" + NetworkText(net_connection_status(0)) + ")", dHandle
 
 DataRcvedTemp = DataRcvedToday
 DataXmitedTemp = DataXmitedToday
-
-
-
 
 End Sub
 

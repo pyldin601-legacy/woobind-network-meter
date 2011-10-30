@@ -87,7 +87,7 @@ Public Enum NS
   Online = 2
 End Enum
 
-Global NetworkStatus(0 To 1)            As NS
+Global net_connection_status(0 To 1)            As NS
 
 
 Global m_objIpHelper                    As CIpHelper
@@ -194,7 +194,7 @@ End Type
 ' // SORTED OPTIONS
 ' // FRAME 0
 ' >> INTERFACES
-Global PingNetwork                      As Boolean
+Global use_ping_host                      As Boolean
 Global PingMode                         As Integer
 Global PingManual                       As String
 Global iph_interface                             As String

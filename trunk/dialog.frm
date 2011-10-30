@@ -2876,7 +2876,7 @@ Sub LoadConfig_Main()
     ' /// LOADING OPTIONS FOR FRAME 0 ///
     ' >>INTERFACE
     Call RefreshInterface                                ' Update network interfaces
-    chkPing.Value = Val(-PingNetwork)               ' Update ping option
+    chkPing.Value = Val(-use_ping_host)               ' Update ping option
     pingAddr.Text = PingManual
     pingSel(PingMode).Value = True
 
@@ -3253,7 +3253,7 @@ use_auto_value = Format(txtDelay.Text, "0")
 ' // SORTED
 ' // FRAME 0
 ' >> INTERFACE
-PingNetwork = def_any_to_bool(chkPing.Value)
+use_ping_host = def_any_to_bool(chkPing.Value)
 If pingSel(0).Value = True Then PingMode = 0 Else PingMode = 1
 PingManual = pingAddr.Text
 If Not cmbInterfaces.Text = "" Then

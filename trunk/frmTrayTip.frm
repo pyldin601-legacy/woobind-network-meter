@@ -286,7 +286,7 @@ End Sub
 
 Sub Rescan()
 
-        lConnection.Caption = Left(filter_interface_name(localize_do(iph_interface, iph_interface)), 45) + " (" + NetworkText(NetworkStatus(0)) + ")"
+        lConnection.Caption = Left(filter_interface_name(localize_do(iph_interface, iph_interface)), 45) + " (" + NetworkText(net_connection_status(0)) + ")"
         lSent.Caption = localize_do("WRD014", "Отправлено") & ":"
         lRecv.Caption = localize_do("WRD015", "Получено") + ":"
         lS.Caption = FormatEx(DataXmited, "### ### ### ##0") + " " + localize_do("WRD007", "Байт")
