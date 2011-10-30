@@ -44,7 +44,7 @@ Begin VB.Form superMenu
    End
    Begin VB.Label itmMnu 
       BackStyle       =   0  'Transparent
-      Caption         =   "Посетить форум программы..."
+      Caption         =   "Visit program forum..."
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -63,7 +63,7 @@ Begin VB.Form superMenu
    End
    Begin VB.Label itmMnu 
       BackStyle       =   0  'Transparent
-      Caption         =   "Проверка обновления"
+      Caption         =   "Check updates"
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -152,7 +152,7 @@ Begin VB.Form superMenu
    End
    Begin VB.Label itmMnu 
       BackStyle       =   0  'Transparent
-      Caption         =   "Exit programm"
+      Caption         =   "Exit program"
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -190,7 +190,7 @@ Begin VB.Form superMenu
    End
    Begin VB.Label itmMnu 
       BackStyle       =   0  'Transparent
-      Caption         =   "About program"
+      Caption         =   "About program..."
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -209,7 +209,7 @@ Begin VB.Form superMenu
    End
    Begin VB.Label itmMnu 
       BackStyle       =   0  'Transparent
-      Caption         =   "Bonuses..."
+      Caption         =   "Special conditions..."
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -228,7 +228,7 @@ Begin VB.Form superMenu
    End
    Begin VB.Label itmMnu 
       BackStyle       =   0  'Transparent
-      Caption         =   "Tariffs..."
+      Caption         =   "Traffic tariffication..."
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
