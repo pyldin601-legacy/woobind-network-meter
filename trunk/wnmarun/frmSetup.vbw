@@ -1,0 +1,10 @@
+frmPostinstall = 106, 65, 1210, 808, , 117, 102, 895, 662, C
+CInterface = 0, 0, 0, 0, C
+CInterfaces = 0, 0, 0, 0, C
+CIpHelper = 0, 0, 0, 0, C
+BasicModule = 0, 0, 0, 0, C
+Archimodule = 250, 250, 1629, 851, 
+modSettings = 0, 0, 0, 0, C
+multilangEngine = 0, 0, 0, 0, C
+RegisterXP = 0, 0, 0, 0, C
+Special_Functions = 0, 0, 0, 0, C
