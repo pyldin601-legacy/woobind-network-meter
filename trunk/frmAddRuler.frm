@@ -75,18 +75,18 @@ Begin VB.Form frmAddRuler
          Left            =   2820
          TabIndex        =   15
          Top             =   420
-         Width           =   1155
+         Width           =   1575
       End
       Begin VB.CheckBox cWork 
-         Caption         =   "Будни"
+         Caption         =   "Weekdays"
          Height          =   195
          Left            =   1440
          TabIndex        =   14
          Top             =   420
-         Width           =   855
+         Width           =   1335
       End
       Begin VB.CheckBox cAllD 
-         Caption         =   "Все"
+         Caption         =   "All"
          Height          =   195
          Left            =   120
          TabIndex        =   13
@@ -94,7 +94,7 @@ Begin VB.Form frmAddRuler
          Width           =   675
       End
       Begin VB.CheckBox cDay 
-         Caption         =   "Нд"
+         Caption         =   "Sun"
          Height          =   195
          Index           =   6
          Left            =   4140
@@ -103,7 +103,7 @@ Begin VB.Form frmAddRuler
          Width           =   675
       End
       Begin VB.CheckBox cDay 
-         Caption         =   "Сб"
+         Caption         =   "Sat"
          Height          =   195
          Index           =   5
          Left            =   3480
@@ -112,7 +112,7 @@ Begin VB.Form frmAddRuler
          Width           =   675
       End
       Begin VB.CheckBox cDay 
-         Caption         =   "Пт"
+         Caption         =   "Fri"
          Height          =   195
          Index           =   4
          Left            =   2820
@@ -121,7 +121,7 @@ Begin VB.Form frmAddRuler
          Width           =   675
       End
       Begin VB.CheckBox cDay 
-         Caption         =   "Чт"
+         Caption         =   "Thu"
          Height          =   195
          Index           =   3
          Left            =   2100
@@ -130,7 +130,7 @@ Begin VB.Form frmAddRuler
          Width           =   675
       End
       Begin VB.CheckBox cDay 
-         Caption         =   "Ср"
+         Caption         =   "Wed"
          Height          =   195
          Index           =   2
          Left            =   1440
@@ -139,7 +139,7 @@ Begin VB.Form frmAddRuler
          Width           =   675
       End
       Begin VB.CheckBox cDay 
-         Caption         =   "Вт"
+         Caption         =   "Tue"
          Height          =   195
          Index           =   1
          Left            =   780
@@ -148,7 +148,7 @@ Begin VB.Form frmAddRuler
          Width           =   675
       End
       Begin VB.CheckBox cDay 
-         Caption         =   "Пн"
+         Caption         =   "Mon"
          Height          =   195
          Index           =   0
          Left            =   120
@@ -181,12 +181,12 @@ Begin VB.Form frmAddRuler
       AutoSize        =   -1  'True
       Caption         =   "исходящего трафика"
       Height          =   195
-      Left            =   3060
+      Left            =   1800
       TabIndex        =   26
       Top             =   3000
-      Width           =   1635
+      Width           =   2895
    End
-   Begin VB.Label Label7 
+   Begin VB.Label lblTax2 
       Caption         =   "fish"
       Height          =   195
       Left            =   6060
@@ -213,7 +213,7 @@ Begin VB.Form frmAddRuler
    Begin VB.Label Label6 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
-      Caption         =   "Добавление правила"
+      Caption         =   "Add a new rule"
       BeginProperty Font 
          Name            =   "Verdana"
          Size            =   11.25
@@ -227,21 +227,22 @@ Begin VB.Form frmAddRuler
       Left            =   240
       TabIndex        =   22
       Top             =   180
-      Width           =   2670
+      Width           =   1830
    End
    Begin VB.Label Label5 
+      Alignment       =   1  'Right Justify
       AutoSize        =   -1  'True
       Caption         =   "Cтоимость 1 МБ входящего трафика"
       Height          =   195
-      Left            =   1920
+      Left            =   1500
       TabIndex        =   21
       Top             =   2580
-      Width           =   2805
+      Width           =   3225
    End
    Begin VB.Label Label4 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
-      Caption         =   "Тариф"
+      Caption         =   "Tariff"
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -255,11 +256,12 @@ Begin VB.Form frmAddRuler
       Left            =   360
       TabIndex        =   20
       Top             =   2580
-      Width           =   540
+      Visible         =   0   'False
+      Width           =   450
    End
    Begin VB.Label Label1 
       BackStyle       =   0  'Transparent
-      Caption         =   "Дни, когда тариф действителен"
+      Caption         =   "Days"
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -269,34 +271,36 @@ Begin VB.Form frmAddRuler
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   855
+      Height          =   795
       Left            =   360
       TabIndex        =   19
       Top             =   1560
       Width           =   1470
    End
    Begin VB.Label Label3 
+      Alignment       =   1  'Right Justify
       AutoSize        =   -1  'True
-      Caption         =   "до"
+      Caption         =   "to"
       Height          =   195
-      Left            =   3600
+      Left            =   3645
       TabIndex        =   4
       Top             =   960
-      Width           =   195
+      Width           =   150
    End
    Begin VB.Label Label2 
+      Alignment       =   1  'Right Justify
       AutoSize        =   -1  'True
-      Caption         =   "с"
+      Caption         =   "from"
       Height          =   195
-      Left            =   1800
+      Left            =   1620
       TabIndex        =   3
       Top             =   960
-      Width           =   75
+      Width           =   330
    End
    Begin VB.Label Label15 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
-      Caption         =   "Время"
+      Caption         =   "Time"
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -310,7 +314,7 @@ Begin VB.Form frmAddRuler
       Left            =   360
       TabIndex        =   2
       Top             =   960
-      Width           =   540
+      Width           =   420
    End
 End
 Attribute VB_Name = "frmAddRuler"
@@ -408,6 +412,7 @@ Label3.Caption = localize_do("RULL4")
 Label1.Caption = localize_do("RULL5")
 Label4.Caption = localize_do("RULL6")
 Label5.Caption = localize_do("RULL7")
+Label8.Caption = localize_do("RULL11")
 
 cAllD.Caption = localize_do("RULL8", "Все")
 cWork.Caption = localize_do("RULL9", "Будни")
@@ -415,6 +420,7 @@ cWeekend.Caption = localize_do("RULL10", "Выходные")
 
 
 lblTax.Caption = TaxName
+lblTax2.Caption = TaxName
 
 OKButton.Caption = localize_do("INIB1")
 CancelButton.Caption = localize_do("INIB2")

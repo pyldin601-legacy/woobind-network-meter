@@ -301,11 +301,11 @@ RULL3=from
 RULL4=to
 RULL5=Days, when rule works
 RULL6=Tariff
-RULL7=Cost of 1 MB
+RULL7=Cost of 1 MB inbound
 RULL8=All
-RULL9=Mon...Fri
+RULL9=Weekdays
 RULL10=Holidays
-
+RULL11=of 1 MB outbound
 
 NOT01=Notifications configuration
 NOT02=Use sound
