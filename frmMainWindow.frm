@@ -1290,6 +1290,9 @@ Dim delay_counter As Integer
 
 Dim tray_icons(1 To 8) As Long
 
+Dim Kachalka As New clsKachalka
+Private WithEvents Kachalka As clsKachalka
+Attribute Kachalka.VB_VarHelpID = -1
 Sub LoadTrayHandles()
   
   On Error GoTo rror
@@ -1607,7 +1610,7 @@ Private Sub Form_Load()
 Set m_objIpHelper = New CIpHelper
 
 
-On Error Resume Next
+' On Error Resume Next
 
 ' Terminate programm by command
 If Command = "/term" Then
@@ -1676,6 +1679,8 @@ tmrEE_Timer ' update tray icon
 ' CheckNewVersion
 
 If FRun = True Then Dialog.Show 0, Me
+
+Kachalka.DownloadPush "http://woobind.org.ua/wnmeter/lastpost.php"
 
 End Sub
 
@@ -1971,6 +1976,11 @@ End Sub
 Private Sub lblReset_Click()
 scReset
 End Sub
+
+Private Sub Kachalka_DataAvailable(ByVal EventType As kach_tlb.BSCF, ByVal Data As String, ByVal DataFormat As Long)
+  MsgBox Data
+End Sub
+
 
 Private Sub lMe_DblClick()
 Me.Visible = False
