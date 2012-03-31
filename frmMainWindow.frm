@@ -1290,9 +1290,6 @@ Dim delay_counter As Integer
 
 Dim tray_icons(1 To 8) As Long
 
-Dim Kachalka As New clsKachalka
-Private WithEvents Kachalka As clsKachalka
-Attribute Kachalka.VB_VarHelpID = -1
 Sub LoadTrayHandles()
   
   On Error GoTo rror
@@ -1374,7 +1371,11 @@ Case LAN_INT
   outB = tmpOut
     
 Case Else
+  
+  u = GetTickCount()
   d = GetIndexFrom2(iph_interface)
+  Debug.Print GetTickCount() - u
+  
   If d > 0 Then
     If m_objIpHelper.Interfaces(d).Speed < NO_SPEED Then
       inB = m_objIpHelper.Interfaces(d).OctetsReceived
@@ -1624,10 +1625,6 @@ End
 End If
 ' End terminate the programm
 
-' Check filename
-If App.EXEName <> "wnmeter" Then End
-' End check filename
-
 Me.BackColor = RGB(240, 0, 120)
 Me.Height = 5820
 
@@ -1680,7 +1677,6 @@ tmrEE_Timer ' update tray icon
 
 If FRun = True Then Dialog.Show 0, Me
 
-Kachalka.DownloadPush "http://woobind.org.ua/wnmeter/lastpost.php"
 
 End Sub
 
