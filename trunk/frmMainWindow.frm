@@ -1973,9 +1973,6 @@ Private Sub lblReset_Click()
 scReset
 End Sub
 
-Private Sub Kachalka_DataAvailable(ByVal EventType As kach_tlb.BSCF, ByVal Data As String, ByVal DataFormat As Long)
-  MsgBox Data
-End Sub
 
 
 Private Sub lMe_DblClick()
