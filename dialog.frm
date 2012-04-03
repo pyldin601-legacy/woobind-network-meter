@@ -39,11 +39,11 @@ Begin VB.Form Dialog
       EndProperty
       Height          =   5415
       Index           =   8
-      Left            =   2940
+      Left            =   3600
       ScaleHeight     =   5415
       ScaleWidth      =   6855
       TabIndex        =   121
-      Top             =   1140
+      Top             =   7920
       Width           =   6855
       Begin VB.CheckBox chkDelay 
          Caption         =   "с задержкой (сек):"
@@ -254,11 +254,11 @@ Begin VB.Form Dialog
       EndProperty
       Height          =   4935
       Index           =   7
-      Left            =   3300
+      Left            =   3240
       ScaleHeight     =   4935
       ScaleWidth      =   6855
       TabIndex        =   82
-      Top             =   8220
+      Top             =   8100
       Width           =   6855
       Begin VB.TextBox txtVersion 
          BackColor       =   &H8000000F&
@@ -296,11 +296,11 @@ Begin VB.Form Dialog
       EndProperty
       Height          =   5355
       Index           =   6
-      Left            =   2700
+      Left            =   2640
       ScaleHeight     =   5355
       ScaleWidth      =   6855
       TabIndex        =   76
-      Top             =   8460
+      Top             =   8340
       Width           =   6855
       Begin VB.TextBox txtTitles 
          BackColor       =   &H8000000F&
@@ -317,7 +317,7 @@ Begin VB.Form Dialog
       Begin VB.Label Label36 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Woobind Software (C) 2007-2011"
+         Caption         =   "Woobind Software (C) 2007-2012"
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
@@ -329,7 +329,7 @@ Begin VB.Form Dialog
          Alignment       =   2  'Center
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
-         Caption         =   "Написать письмо автору"
+         Caption         =   "Поддержать проект"
          BeginProperty Font 
             Name            =   "Verdana"
             Size            =   8.25
@@ -341,12 +341,12 @@ Begin VB.Form Dialog
          EndProperty
          ForeColor       =   &H00FF0000&
          Height          =   195
-         Left            =   3690
+         Left            =   3885
          MouseIcon       =   "dialog.frx":4814
          MousePointer    =   99  'Custom
          TabIndex        =   80
          Top             =   5040
-         Width           =   2175
+         Width           =   1785
       End
       Begin VB.Label lblSiteVisit 
          Alignment       =   2  'Center
@@ -1475,11 +1475,11 @@ Begin VB.Form Dialog
       BorderStyle     =   0  'None
       Height          =   5415
       Index           =   0
-      Left            =   120
+      Left            =   3000
       ScaleHeight     =   5415
       ScaleWidth      =   6795
       TabIndex        =   2
-      Top             =   10020
+      Top             =   1140
       Width           =   6795
       Begin VB.CommandButton cmGetSettingWindow 
          Caption         =   "Настройки"
@@ -1570,12 +1570,12 @@ Begin VB.Form Dialog
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   2400
+         Left            =   5400
          Pattern         =   "*.slf"
          TabIndex        =   35
          Top             =   120
          Visible         =   0   'False
-         Width           =   435
+         Width           =   1155
       End
       Begin VB.ComboBox cmbFiles 
          Height          =   315
@@ -3116,7 +3116,7 @@ End Sub
 
 Private Sub lblEMail_Click()
 
-RunWEB "mailto:networkmeter@ukr.net"
+RunWEB "http://woobind.org.ua/project/donate"
 
 End Sub
 
