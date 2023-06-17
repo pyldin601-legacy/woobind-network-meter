@@ -1,6 +1,6 @@
 The program **Woobind Network Meter** is designed to track the traffic expenses of Dial-Up and LAN connections.
 
-http://woobind.org.ua/images/wnmeter.jpg
+![image](https://github.com/pyldin601-legacy/woobind-network-meter/assets/8050895/c1f2007b-54b8-47af-ac04-78056a6408a1)
 
 Key features: 
 * Accounting of LAN and Dial-Up traffic 
